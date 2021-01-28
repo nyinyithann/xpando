@@ -42,12 +42,15 @@ import chunkBySize from './vec.chunkBySize';
 import binarySearch from './vec.binarySearch';
 import permute from './vec.permute';
 import transpose from './vec.transpose';
+import allPairs from './vec.allPairs';
+import some2 from './some2';
 
 Vec.empty = empty;
 Vec.init = init;
 Vec.create = create;
 Vec.isVec = isVec;
 Vec.transpose = transpose;
+Vec.some2 = some2;
 
 Vec.prototype.isEmpty = isEmpty;
 Vec.prototype.copy = copy;
@@ -88,5 +91,6 @@ Vec.prototype.mapFoldRight = mapFoldRight;
 Vec.prototype.chunkBySize = chunkBySize;
 Vec.prototype.binarySearch = binarySearch;
 Vec.prototype.permute = permute;
+Vec.prototype.allPairs = allPairs;
 
 export default Vec;

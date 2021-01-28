@@ -1,0 +1,30 @@
+import Vec from '../../src/vec/vec.main';
+import empty from '../../src/vec/vec.empty';
+
+describe('except()', () => {
+  test('should throw error if the existing vec is null or undefined, or itemsToExclude is null or undefined', () => {
+    const except = Vec.prototype.except;
+    expect(() => except.call(null)).toThrow(TypeError);
+    expect(() => except.call(undefined)).toThrow(TypeError);
+    expect(() => (new Vec(1, 2, 3).except())).toThrow(TypeError);
+  });
+
+  test('should return empty if the length of existing vec is 0', () => {
+    expect(new Vec().except(1, 2, 3)).toEqual(empty());
+  });
+
+  test('should exclude items passed as arguments', () => {
+    expect(new Vec(1, 2, 3, 4, 5).except(2, 3, 4)).toEqual(new Vec(1, 5));
+    expect(new Vec([1], [2], [3], [4], [5]).except([2], [3], [4])).toEqual(new Vec([1], [5]));
+    expect(new Vec({ n: 1 }, { n: 1 }, { n: 2 }, { n: 2 }, { n: 5 })
+      .except({ n: 1 }, { n: 1 }, { n: 2 })).toEqual(new Vec({ n: 5 }));
+  });
+
+  test('invocation via call/apply/bind should be fine', () => {
+    const vec = new Vec(1, 2, 3, 4, 5);
+    const except = Vec.prototype.except;
+    expect(except.call(vec, 2, 3, 4)).toEqual(new Vec(1, 5));
+    expect(except.apply(vec, [2, 3, 4])).toEqual(new Vec(1, 5));
+    expect(except.bind(vec)(2, 3, 4)).toEqual(new Vec(1, 5));
+  });
+});

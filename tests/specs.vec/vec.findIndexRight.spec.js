@@ -31,6 +31,10 @@ describe('findIndexBack()', () => {
     const vec = new Vec(1, 2, 42, 323, 423, 32, 23, 10, 11);
     expect(vec.findIndexRight((x) => x % 2 === 0)).toBe(7);
     expect((new Vec(2, 3, 4, 5, 7, 4).findIndexRight((x) => x % 2 === 1))).toBe(4);
+
+    /* eslint-disable */
+    // values of 2 empty slots are equal
+    expect(Vec.from([[1, 31], [2, 32], [,,], [3, 33]]).findIndexRight((x) => x[0] === x[1])).toBe(2);
   });
 
   test('if not found any element, should return -1', () => {

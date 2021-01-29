@@ -26,6 +26,13 @@ describe('distinct()', () => {
     vec.push(1, 2, 3, 1, 2, 3, () => {}, () => {});
     expect(vec.distinct(true).length).toBe(4);
     expect(vec.distinct(false).length).toBe(5);
+
+    expect(Vec.from([,,,,,, 1, 1, 1, 1]).distinct(false)).toEqual(Vec.from(
+      [, 1],
+    ));
+    expect(Vec.from([,,,,,, 1, 1, 1, 1]).distinct(true)).toEqual(Vec.from(
+      [, 1],
+    ));
   });
 
   test('invocation via call/apply/bind should be fine', () => {

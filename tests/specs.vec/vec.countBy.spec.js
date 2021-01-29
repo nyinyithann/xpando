@@ -100,6 +100,15 @@ describe('countBy()', () => {
         new Vec('C', 3),
         new Vec(undefined, 4),
       ));
+
+    expect(Vec.from([,, 1, 1]).countBy((x) => x, true)).toEqual(new Vec(
+      Vec.from([, 2]),
+      new Vec(1, 2),
+    ));
+    expect(Vec.from([,, 1, 1]).countBy((x) => x, false)).toEqual(new Vec(
+      Vec.from([, 2]),
+      new Vec(1, 2),
+    ));
   });
 
   test('should work with nested type', () => {

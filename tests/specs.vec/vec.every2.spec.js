@@ -38,5 +38,8 @@ describe('Vec.every2()', () => {
       },
     };
     expect(Vec.every2(context.predicate.bind(context), [{ n: 1 }, { n: 12 }], [{ n: 1 }, { n: 12 }])).toBe(true);
+
+    /* eslint-disable */
+    expect(Vec.every2((x, y) => x === y, Vec.from([1, 2, , ]), Vec.from([1, 2, ,]))).toBe(true);
   });
 });

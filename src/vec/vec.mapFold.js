@@ -6,12 +6,13 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
-function mapFold(mapping, acc) {
+function mapFold(mapping, accumulator) {
   throwIfNullOrUndefined(this, 'this');
+  throwIfNullOrUndefined(accumulator, 'accumulator');
   throwIfNotAFunction(mapping, 'mapping');
   throwIfGeneratorFunction(mapping, 'mapping');
 
-  let accumulator = acc;
+  let acc = accumulator;
   let thisArg;
 
   if (arguments.length > 2) {
@@ -24,12 +25,12 @@ function mapFold(mapping, acc) {
 
   const vec = new Vec(this.length);
   for (let i = 0; i < this.length; i += 1) {
-    const [h, s] = mapping.call(thisArg, accumulator, this[i]);
+    const [h, s] = mapping.call(thisArg, acc, this[i]);
     vec[i] = h;
-    accumulator = s;
+    acc = s;
   }
 
-  return new Vec(vec, accumulator);
+  return new Vec(vec, acc);
 }
 
 export default mapFold;

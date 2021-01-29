@@ -11,11 +11,11 @@ function some2(predicate, source1, source2) {
   throwIfNullOrUndefined(source1, 'source1');
   throwIfNullOrUndefined(source2, 'source2');
 
-  if (!Array.isArray(source1) || !Vec.isVec(source1)) {
+  if (!Array.isArray(source1) && !Vec.isVec(source1)) {
     throw TypeError('source1 should be Array or Vec.');
   }
 
-  if (!Array.isArray(source2) || !Vec.isVec(source2)) {
+  if (!Array.isArray(source2) && !Vec.isVec(source2)) {
     throw TypeError('source2 should be Array or Vec.');
   }
 
@@ -23,16 +23,10 @@ function some2(predicate, source1, source2) {
     throw TypeError('source1 and source2 have different lengths.');
   }
 
-  let thisArg;
-
-  if (arguments.length > 2) {
-    thisArg = arguments[2];
-  }
-
   return (function loop(i) {
     return (
       i < source1.length
-      && (predicate.call(thisArg, source1[i], source2[i]) || loop(i + 1))
+      && (predicate(source1[i], source2[i]) || loop(i + 1))
     );
   }(0));
 }

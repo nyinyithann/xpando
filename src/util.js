@@ -63,6 +63,10 @@ export function isPrimitive(value) {
     || isString(value) || isBoolean(value);
 }
 
+export function hasArrayEmptySlot(source) {
+
+}
+
 export function getHasher() {
   const cache = new WeakMap();
 

@@ -19,7 +19,8 @@
     "max-len": "off",
     "prefer-destructuring" : "off",
     "prefer-rest-params": "off",
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "no-sparse-arrays": "off"
   }
 }
 

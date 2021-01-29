@@ -5,11 +5,10 @@ import {
 } from '../throwHelper';
 import Vec from './vec.core';
 
-function fold2(folder, state, source1, source2) {
+function forEach2(action, source1, source2) {
   throwIfNullOrUndefined(this, 'this');
-  throwIfNullOrUndefined(state, 'state');
-  throwIfNotAFunction(folder, 'folder');
-  throwIfGeneratorFunction(folder, 'folder');
+  throwIfNotAFunction(action, 'action');
+  throwIfGeneratorFunction(action, 'action');
   throwIfNullOrUndefined(source1, 'source1');
   throwIfNullOrUndefined(source2, 'source2');
 
@@ -25,12 +24,9 @@ function fold2(folder, state, source1, source2) {
     throw TypeError('source1 and source2 have different lengths.');
   }
 
-  let s = state;
   for (let i = 0; i < source1.length; i += 1) {
-    s = folder(s, source1[i], source2[i]);
+    action(source1[i], source2[i], i);
   }
-
-  return s;
 }
 
-export default fold2;
+export default forEach2;

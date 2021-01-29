@@ -31,6 +31,13 @@ describe('distinctBy()', () => {
     const expected4 = vec.distinctBy(({ n }) => n, false);
     const actual4 = new Vec({ n: 10 }, { n: 2 }, { n: -2 }, 1);
     expect(actual4).toEqual(expected4);
+
+    expect(Vec.from([,,,,,, 1, 1, 1, 1]).distinctBy((x) => x, false)).toEqual(Vec.from(
+      [, 1],
+    ));
+    expect(Vec.from([,,,,,, 1, 1, 1, 1]).distinctBy((x) => x, true)).toEqual(Vec.from(
+      [, 1],
+    ));
   });
 
   test('projection might be associate with a context', () => {

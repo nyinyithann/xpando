@@ -1,10 +1,12 @@
+/* eslint-disable */
+
 import Vec from './vec.core';
 import { throwIfNullOrUndefined } from '../throwHelper';
 
 function allPairs(other) {
   throwIfNullOrUndefined(this, 'this');
 
-  if (!Array.isArray(other) || !Vec.isVec(other)) {
+  if (!Array.isArray(other) && !Vec.isVec(other)) {
     throw TypeError('other should be Array or Vec.');
   }
 

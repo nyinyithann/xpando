@@ -40,4 +40,9 @@ describe('chunkBySize()', () => {
     );
     expect(actual4).toEqual(expected4);
   });
+
+  expect(Vec.from([,, 1, 2, 3]).chunkBySize(4)).toEqual(new Vec(
+    Vec.from([,, 1, 2]),
+    Vec.of(3),
+  ));
 });

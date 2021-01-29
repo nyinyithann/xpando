@@ -47,6 +47,10 @@ import some2 from './vec.some2';
 import every2 from './vec.every2';
 import fold2 from './vec.fold2';
 import foldRight2 from './vec.foldRight2';
+import forEach2 from './vec.forEach2';
+import map2 from './vec.map2';
+import map3 from './vec.map3';
+import zip3 from './vec.zip3';
 
 Vec.empty = empty;
 Vec.init = init;
@@ -57,6 +61,10 @@ Vec.some2 = some2;
 Vec.every2 = every2;
 Vec.fold2 = fold2;
 Vec.foldRight2 = foldRight2;
+Vec.forEach2 = forEach2;
+Vec.map2 = map2;
+Vec.map3 = map3;
+Vec.zip3 = zip3;
 
 Vec.prototype.isEmpty = isEmpty;
 Vec.prototype.copy = copy;

@@ -43,7 +43,10 @@ import binarySearch from './vec.binarySearch';
 import permute from './vec.permute';
 import transpose from './vec.transpose';
 import allPairs from './vec.allPairs';
-import some2 from './some2';
+import some2 from './vec.some2';
+import every2 from './vec.every2';
+import fold2 from './vec.fold2';
+import foldRight2 from './vec.foldRight2';
 
 Vec.empty = empty;
 Vec.init = init;
@@ -51,6 +54,9 @@ Vec.create = create;
 Vec.isVec = isVec;
 Vec.transpose = transpose;
 Vec.some2 = some2;
+Vec.every2 = every2;
+Vec.fold2 = fold2;
+Vec.foldRight2 = foldRight2;
 
 Vec.prototype.isEmpty = isEmpty;
 Vec.prototype.copy = copy;
@@ -65,7 +71,6 @@ Vec.prototype.last = last;
 Vec.prototype.take = take;
 Vec.prototype.takeWhile = takeWhile;
 Vec.prototype.skipWhile = skipWhile;
-
 Vec.prototype.min = min;
 Vec.prototype.max = max;
 Vec.prototype.minBy = minBy;

@@ -2,7 +2,7 @@ import Vec from './vec.core';
 import { isNull, isUndefined } from '../util';
 
 function transpose(source) {
-  if (!Array.isArray(source) || !Vec.isVec(source)) {
+  if (!Array.isArray(source) && !Vec.isVec(source)) {
     throw TypeError('source should be Array or Vec.');
   }
 
@@ -12,7 +12,7 @@ function transpose(source) {
 
   let innerLen;
   for (let i = 0; i < source.length; i += 1) {
-    if (!Array.isArray(source) || !Vec.isVec(source)) {
+    if (!Array.isArray(source[i]) && !Vec.isVec(source[i])) {
       throw TypeError('source should contain only Arrays or Vecs.');
     }
     if (isNull(innerLen) || isUndefined(innerLen)) {

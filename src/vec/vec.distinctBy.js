@@ -1,5 +1,5 @@
 import Vec from './vec.core';
-import { getHasher } from '../util';
+import { compareWith, sameValueZeroEqual } from '../util';
 import {
   throwIfGeneratorFunction,
   throwIfNotAFunction,
@@ -18,23 +18,27 @@ function distinctBy(projection, structuralEquality) {
     thisArg = arguments[2];
   }
 
-  const vec = new Vec();
   const set = new Set();
+  const vec = new Vec();
 
-  const getHashKey = getHasher();
   for (let i = 0; i < this.length; i += 1) {
+    const value = this[i];
+    const key = projection.call(thisArg, value);
     if (structuralEquality === true) {
-      const hashKey = getHashKey(projection.call(thisArg, this[i]));
-      if (!set.has(hashKey)) {
-        set.add(hashKey);
-        vec.push(this[i]);
+      let hasKey = false;
+      for (const k of set) {
+        if (compareWith(sameValueZeroEqual, k, key)) {
+          hasKey = true;
+          break;
+        }
       }
-    } else {
-      const key = projection.call(thisArg, this[i]);
-      if (!set.has(key)) {
+      if (!hasKey) {
         set.add(key);
-        vec.push(this[i]);
+        vec.push(value);
       }
+    } else if (!set.has(key)) {
+      set.add(key);
+      vec.push(value);
     }
   }
 

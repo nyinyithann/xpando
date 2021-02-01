@@ -9,7 +9,7 @@ describe('pairwise()', () => {
   });
 
   test('should return empty vec if the length of the existing vec is less than 2', () => {
-    expect(new Vec().pairwise()).toEqual(empty());
+    expect(new Vec().pairwise()).toStrictEqual(empty());
   });
 
   test('should return correct result', () => {
@@ -20,7 +20,7 @@ describe('pairwise()', () => {
       new Vec(2, 3),
       new Vec(3, 4),
     );
-    expect(vec.pairwise()).toEqual(expected);
+    expect(vec.pairwise()).toStrictEqual(expected);
   });
 
   test('invocation via call/apply/bind should be fine', () => {
@@ -34,8 +34,8 @@ describe('pairwise()', () => {
       new Vec(3, 4),
     );
 
-    expect(pairwise.call(vec)).toEqual(expected);
-    expect(pairwise.apply(vec)).toEqual(expected);
-    expect(pairwise.bind(vec)()).toEqual(expected);
+    expect(pairwise.call(vec)).toStrictEqual(expected);
+    expect(pairwise.apply(vec)).toStrictEqual(expected);
+    expect(pairwise.bind(vec)()).toStrictEqual(expected);
   });
 });

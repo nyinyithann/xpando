@@ -47,12 +47,12 @@ describe('groupBy()', () => {
     const mrB = new Person('B', 15);
     const vec = new Vec(mrA, mrA, mrB);
     expect(vec.groupBy(projection, true, obj))
-      .toEqual(new Vec(
+      .toStrictEqual(new Vec(
         new Vec('A', new Vec(mrA, mrA)), new Vec('B', new Vec(mrB)),
       ));
 
     expect(vec.groupBy(projection, false, obj))
-      .toEqual(new Vec(
+      .toStrictEqual(new Vec(
         new Vec('A', new Vec(mrA, mrA)), new Vec('B', new Vec(mrB)),
       ));
   });
@@ -79,17 +79,17 @@ describe('groupBy()', () => {
       new Vec(godFather, new Vec(jesus, peter, andrew)),
       new Vec(holyGhostFather, new Vec(moses, jude)),
     );
-    expect(received1).toEqual(actual1);
+    expect(received1).toStrictEqual(actual1);
 
     const received2 = vec.groupBy(({ father }) => father, true);
     const actual2 = new Vec(
       new Vec(godFather, new Vec(jesus, peter, andrew, moses, jude)),
     );
-    expect(received2).toEqual(actual2);
+    expect(received2).toStrictEqual(actual2);
 
     const groupBy = Vec.prototype.groupBy;
-    expect(groupBy.call(vec, ({ father }) => father, false)).toEqual(actual1);
-    expect(groupBy.apply(vec, [({ father }) => father, false])).toEqual(actual1);
-    expect(groupBy.bind(vec)(({ father }) => father, false)).toEqual(actual1);
+    expect(groupBy.call(vec, ({ father }) => father, false)).toStrictEqual(actual1);
+    expect(groupBy.apply(vec, [({ father }) => father, false])).toStrictEqual(actual1);
+    expect(groupBy.bind(vec)(({ father }) => father, false)).toStrictEqual(actual1);
   });
 });

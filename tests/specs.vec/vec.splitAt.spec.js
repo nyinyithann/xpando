@@ -14,18 +14,18 @@ describe('splitAt()', () => {
   test('should return two split vecs', () => {
     const vec = Vec.init(10, (x) => x + 1);
     const splitVec = vec.splitAt(4);
-    expect(splitVec[0]).toEqual(new Vec(1, 2, 3, 4));
-    expect(splitVec[1]).toEqual(new Vec(5, 6, 7, 8, 9, 10));
+    expect(splitVec[0]).toStrictEqual(new Vec(1, 2, 3, 4));
+    expect(splitVec[1]).toStrictEqual(new Vec(5, 6, 7, 8, 9, 10));
     expect(vec.length).toBe(10);
-    expect(vec.splitAt(0)).toEqual(new Vec([], vec));
-    expect(vec.splitAt(vec.length)).toEqual(new Vec(vec, []));
+    expect(vec.splitAt(0)).toStrictEqual(new Vec([], vec));
+    expect(vec.splitAt(vec.length)).toStrictEqual(new Vec(vec, []));
   });
 
   test('invocation via call/apply/bind should be fine', () => {
     const vec = Vec.init(5, (x) => x + 1);
     const splitAt = Vec.prototype.splitAt;
-    expect(splitAt.call(vec, 2)).toEqual(new Vec(new Vec(1, 2), new Vec(3, 4, 5)));
-    expect(splitAt.apply(vec, [2])).toEqual(new Vec(new Vec(1, 2), new Vec(3, 4, 5)));
-    expect(splitAt.bind(vec)(2)).toEqual(new Vec(new Vec(1, 2), new Vec(3, 4, 5)));
+    expect(splitAt.call(vec, 2)).toStrictEqual(new Vec(new Vec(1, 2), new Vec(3, 4, 5)));
+    expect(splitAt.apply(vec, [2])).toStrictEqual(new Vec(new Vec(1, 2), new Vec(3, 4, 5)));
+    expect(splitAt.bind(vec)(2)).toStrictEqual(new Vec(new Vec(1, 2), new Vec(3, 4, 5)));
   });
 });

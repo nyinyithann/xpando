@@ -15,9 +15,9 @@ describe('windowed()', () => {
       new Vec(2, 3, 4, 5, 6, 7, 8, 9),
       new Vec(3, 4, 5, 6, 7, 8, 9, 10),
     );
-    expect(expected).toEqual(actual);
-    expect(vec.windowed(10)).toEqual(new Vec(vec));
-    expect(vec.windowed(vec.length + 1)).toEqual(new Vec());
+    expect(expected).toStrictEqual(actual);
+    expect(vec.windowed(10)).toStrictEqual(new Vec(vec));
+    expect(vec.windowed(vec.length + 1)).toStrictEqual(new Vec());
   });
 
   test('invocation via call/apply/bind should be fine', () => {
@@ -29,8 +29,8 @@ describe('windowed()', () => {
       new Vec(3, 4, 5, 6, 7, 8, 9, 10),
     );
 
-    expect(windowed.call(vec, 8)).toEqual(actual);
-    expect(windowed.apply(vec, [8])).toEqual(actual);
-    expect(windowed.bind(vec)(8)).toEqual(actual);
+    expect(windowed.call(vec, 8)).toStrictEqual(actual);
+    expect(windowed.apply(vec, [8])).toStrictEqual(actual);
+    expect(windowed.bind(vec)(8)).toStrictEqual(actual);
   });
 });

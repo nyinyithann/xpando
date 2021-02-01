@@ -17,12 +17,12 @@ describe('Vec.transpose()', () => {
       new Vec(2, 5),
       new Vec(3, 6),
     );
-    expect(actual).toEqual(expected);
+    expect(actual).toStrictEqual(expected);
 
-    expect(Vec.transpose(new Vec([1, 2, 3]))).toEqual(new Vec(
+    expect(Vec.transpose(new Vec([1, 2, 3]))).toStrictEqual(new Vec(
       Vec.of(1), Vec.of(2), Vec.of(3),
     ));
 
-    expect(Vec.transpose(new Vec([]))).toEqual(new Vec());
+    expect(Vec.transpose(new Vec([]))).toStrictEqual(new Vec());
   });
 });

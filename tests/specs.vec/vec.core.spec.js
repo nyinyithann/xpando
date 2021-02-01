@@ -6,12 +6,12 @@ describe('vec.core', () => {
     const reducer = (x, y) => x + y;
     const sum = vec.reduce(reducer);
     expect(sum).toBe([1, 2, 3, 4, 5].reduce(reducer));
-    expect(vec.toString()).toEqual([1, 2, 3, 4, 5].toString());
-    expect(vec.toLocaleString()).toEqual([1, 2, 3, 4, 5].toLocaleString());
+    expect(vec.toString()).toStrictEqual([1, 2, 3, 4, 5].toString());
+    expect(vec.toLocaleString()).toStrictEqual([1, 2, 3, 4, 5].toLocaleString());
   });
 
   test('toString tag should be [object Vec]', () => {
-    expect(Object.prototype.toString.call(new Vec())).toEqual('[object Vec]');
+    expect(Object.prototype.toString.call(new Vec())).toStrictEqual('[object Vec]');
   });
 
   test('instanceof Vec is Vec', () => {

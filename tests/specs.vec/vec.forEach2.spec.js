@@ -9,7 +9,7 @@ describe('Vec.forEach2()', () => {
       ret.push([x, y, i]);
     }, v1, v2);
 
-    expect(ret).toEqual(new Vec(
+    expect(ret).toStrictEqual(new Vec(
       [1, 1, 0],
       [2, 2, 1],
       [3, 3, 2],

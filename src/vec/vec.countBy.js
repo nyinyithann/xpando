@@ -1,5 +1,5 @@
 import Vec from './vec.core';
-import { getHasher } from '../util';
+import { compareWith, sameValueZeroEqual } from '../util';
 import {
   throwIfGeneratorFunction,
   throwIfNotAFunction,
@@ -19,14 +19,22 @@ function countBy(projection, structuralEquality) {
   }
 
   const map = new Map();
-  const getHashKey = getHasher();
   for (const item of this) {
     const key = projection.call(thisArg, item);
     if (structuralEquality === true) {
-      const hashKey = getHashKey(key);
-      const hk = map.get(hashKey);
-      const count = hk ? hk.count + 1 : 1;
-      map.set(hashKey, { key, count });
+      let count = 1;
+      let existingKey;
+      for (const k of map.keys()) {
+        if (compareWith(sameValueZeroEqual, k, key)) {
+          count = map.get(k) + 1;
+          existingKey = k;
+          map.set(k, count);
+          break;
+        }
+      }
+      if (!existingKey) {
+        map.set(key, count);
+      }
     } else {
       map.set(key, (map.get(key) || 0) + 1);
     }
@@ -35,11 +43,7 @@ function countBy(projection, structuralEquality) {
   const vec = new Vec();
 
   for (const [k, v] of map.entries()) {
-    if (structuralEquality === true) {
-      vec.push(new Vec(v.key, v.count));
-    } else {
-      vec.push(new Vec(k, v));
-    }
+    vec.push(new Vec(k, v));
   }
   return vec;
 }

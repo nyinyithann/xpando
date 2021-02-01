@@ -51,6 +51,7 @@ import forEach2 from './vec.forEach2';
 import map2 from './vec.map2';
 import map3 from './vec.map3';
 import zip3 from './vec.zip3';
+import unfold from './vec.unfold';
 
 Vec.empty = empty;
 Vec.init = init;
@@ -65,6 +66,7 @@ Vec.forEach2 = forEach2;
 Vec.map2 = map2;
 Vec.map3 = map3;
 Vec.zip3 = zip3;
+Vec.unfold = unfold;
 
 Vec.prototype.isEmpty = isEmpty;
 Vec.prototype.copy = copy;

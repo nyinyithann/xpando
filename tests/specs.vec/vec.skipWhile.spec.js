@@ -16,18 +16,18 @@ describe('skipWhile()', () => {
   test('should skip elements satisfied by predicate', () => {
     const vec = Vec.init(10, (x) => x + 1);
     expect(vec.skipWhile((x) => x % 2 === 1).length).toBe(9);
-    expect(vec.skipWhile((x) => x % 2 === 1)).toEqual(vec.slice(1));
-    expect(vec.skipWhile((x) => x < 3)).toEqual(vec.slice(2));
-    expect(vec.skipWhile((x) => x > 3)).toEqual(vec);
-    expect(vec.skipWhile((x) => x > 0)).toEqual(new Vec());
+    expect(vec.skipWhile((x) => x % 2 === 1)).toStrictEqual(vec.slice(1));
+    expect(vec.skipWhile((x) => x < 3)).toStrictEqual(vec.slice(2));
+    expect(vec.skipWhile((x) => x > 3)).toStrictEqual(vec);
+    expect(vec.skipWhile((x) => x > 0)).toStrictEqual(new Vec());
   });
 
   test('invocation via call/apply/bind should be fine', () => {
     const vec = Vec.init(10, (x) => x + 1);
     const skipWhile = Vec.prototype.skipWhile;
-    expect(skipWhile.call(vec, (x) => x % 2 === 1)).toEqual(vec.slice(1));
-    expect(skipWhile.apply(vec, [(x) => x < 3])).toEqual(vec.slice(2));
-    expect(skipWhile.bind(vec)((x) => x > 3)).toEqual(vec);
+    expect(skipWhile.call(vec, (x) => x % 2 === 1)).toStrictEqual(vec.slice(1));
+    expect(skipWhile.apply(vec, [(x) => x < 3])).toStrictEqual(vec.slice(2));
+    expect(skipWhile.bind(vec)((x) => x > 3)).toStrictEqual(vec);
   });
 
   test('predicate can be a method of an object', () => {
@@ -38,6 +38,6 @@ describe('skipWhile()', () => {
       },
     };
     const vec = Vec.init(10, (x) => x + 1);
-    expect(vec.skipWhile(obj.predicate, obj)).toEqual(new Vec());
+    expect(vec.skipWhile(obj.predicate, obj)).toStrictEqual(new Vec());
   });
 });

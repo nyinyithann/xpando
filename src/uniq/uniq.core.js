@@ -1,12 +1,12 @@
-class Vec extends Array {
+class Uniq extends Set {
   // eslint-disable-next-line class-methods-use-this
   get [Symbol.toStringTag]() {
-    return 'Vec';
+    return 'Uniq';
   }
 
   static get [Symbol.species]() {
-    return Vec;
+    return Uniq;
   }
 }
 
-export default Vec;
+export default Uniq;

@@ -2,7 +2,7 @@ import { terser } from 'rollup-plugin-terser';
 
 export default [
   {
-    input: 'src/main.js',
+    input: 'src/index.js',
     plugins: [terser()],
     output: {
       file: 'build/umd/xpando.js',
@@ -12,7 +12,7 @@ export default [
     },
   },
   {
-    input: 'src/main.js',
+    input: 'src/index.js',
     plugins: [terser()],
     output: {
       file: 'build/esm/xpando.js',

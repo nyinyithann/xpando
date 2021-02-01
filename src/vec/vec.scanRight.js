@@ -1,14 +1,14 @@
 import create from './vec.create';
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
 function scanRight(folder, initialState) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNullOrUndefined(initialState, 'initialState');
-  throwIfNotAFunction(folder, 'folder');
+  throwIfNotFunction(folder, 'folder');
   throwIfGeneratorFunction(folder, 'folder');
 
   let thisArg;

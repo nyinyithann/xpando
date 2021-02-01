@@ -12,7 +12,7 @@ export function throwIfNullOrUndefined(value, name = 'value') {
   }
 }
 
-export function throwIfNotAFunction(value, name = 'value') {
+export function throwIfNotFunction(value, name = 'value') {
   if (!isFunction(value)) {
     throw new TypeError(`${name} is not a function.`);
   }

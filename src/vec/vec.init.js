@@ -3,12 +3,12 @@ import Vec from './vec.core';
 import {
   throwIfGeneratorFunction,
   throwIfNegativeNumber,
-  throwIfNotAFunction,
+  throwIfNotFunction,
 } from '../throwHelper';
 
 function init(count, initializer) {
   throwIfNegativeNumber(count, 'count');
-  throwIfNotAFunction(initializer, 'initializer');
+  throwIfNotFunction(initializer, 'initializer');
   throwIfGeneratorFunction(initializer, 'initializer');
 
   const c = Math.floor(count);

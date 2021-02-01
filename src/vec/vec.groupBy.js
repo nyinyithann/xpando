@@ -2,14 +2,14 @@ import Vec from './vec.core';
 import { equalWith, sameValueZeroEqual } from '../util';
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
 function groupBy(projection, structuralEquality) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNullOrUndefined(structuralEquality, 'structuralEquality');
-  throwIfNotAFunction(projection, 'projection');
+  throwIfNotFunction(projection, 'projection');
   throwIfGeneratorFunction(projection, 'projection');
 
   let thisArg;

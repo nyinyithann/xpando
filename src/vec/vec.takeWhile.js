@@ -1,13 +1,13 @@
 import Vec from './vec.core';
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
 function takeWhile(predicate) {
   throwIfNullOrUndefined(this, 'this');
-  throwIfNotAFunction(predicate, 'predicate');
+  throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');
 
   let thisArg;

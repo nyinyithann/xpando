@@ -1,12 +1,12 @@
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
 function findIndexRight(predicate) {
   throwIfNullOrUndefined(this, 'this');
-  throwIfNotAFunction(predicate, 'predicate');
+  throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');
 
   const thisVec = Object(this);

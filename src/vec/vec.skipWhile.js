@@ -1,13 +1,13 @@
 import empty from './vec.empty';
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
 function skipWhile(predicate) {
   throwIfNullOrUndefined(this, 'this');
-  throwIfNotAFunction(predicate, 'predicate');
+  throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');
 
   let thisArg;

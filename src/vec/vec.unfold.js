@@ -1,6 +1,6 @@
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 import { isNotNull, isNotUndefined } from '../util';
@@ -9,7 +9,7 @@ import Vec from './vec.core';
 function unfold(generator, state) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNullOrUndefined(state, 'state');
-  throwIfNotAFunction(generator, 'generator');
+  throwIfNotFunction(generator, 'generator');
   throwIfGeneratorFunction(generator, 'generator');
 
   const result = new Vec();

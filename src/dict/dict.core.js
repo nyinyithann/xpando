@@ -1,12 +1,12 @@
-class Vec extends Array {
+class Dict extends Map {
   // eslint-disable-next-line class-methods-use-this
   get [Symbol.toStringTag]() {
-    return 'Vec';
+    return 'Dict';
   }
 
   static get [Symbol.species]() {
-    return Vec;
+    return Dict;
   }
 }
 
-export default Vec;
+export default Dict;

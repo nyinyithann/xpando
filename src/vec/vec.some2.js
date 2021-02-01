@@ -1,12 +1,12 @@
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 import Vec from './vec.core';
 
 function some2(predicate, source1, source2) {
-  throwIfNotAFunction(predicate, 'predicate');
+  throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');
   throwIfNullOrUndefined(source1, 'source1');
   throwIfNullOrUndefined(source2, 'source2');

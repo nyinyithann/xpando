@@ -1,13 +1,13 @@
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 import Vec from './vec.core';
 
 function forEach2(action, source1, source2) {
   throwIfNullOrUndefined(this, 'this');
-  throwIfNotAFunction(action, 'action');
+  throwIfNotFunction(action, 'action');
   throwIfGeneratorFunction(action, 'action');
   throwIfNullOrUndefined(source1, 'source1');
   throwIfNullOrUndefined(source2, 'source2');

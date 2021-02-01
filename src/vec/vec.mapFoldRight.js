@@ -2,13 +2,13 @@ import empty from './vec.empty';
 import Vec from './vec.core';
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
 function mapFoldRight(mapping, acc) {
   throwIfNullOrUndefined(this, 'this');
-  throwIfNotAFunction(mapping, 'mapping');
+  throwIfNotFunction(mapping, 'mapping');
   throwIfGeneratorFunction(mapping, 'mapping');
 
   let accumulator = acc;

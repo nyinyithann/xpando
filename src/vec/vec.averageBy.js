@@ -1,13 +1,13 @@
 import { isNumber } from '../util';
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
 function averageBy(projection) {
   throwIfNullOrUndefined(this, 'this');
-  throwIfNotAFunction(projection, 'projection');
+  throwIfNotFunction(projection, 'projection');
   throwIfGeneratorFunction(projection, 'projection');
 
   let thisArg;

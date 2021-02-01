@@ -3,6 +3,7 @@ import {
   abstractEqual, strictEqual,
 } from '../../src/util';
 
+// primarily based on lodash's test cases
 describe('deep equality test', () => {
   const symbol1 = Symbol ? Symbol('a') : true;
   const symbol2 = Symbol ? Symbol('b') : false;
@@ -198,8 +199,7 @@ describe('deep equality test', () => {
     expect(util.equalWith(strictEqual, { constructor: 1 }, { constructor: '1' })).toBe(false);
     expect(util.equalWith(abstractEqual, { constructor: [1] }, { constructor: [1] })).toBe(true);
 
-    // this one is wrong. the equality logic need to be fixed
-    // expect(util.equalWith(strictEqual, { constructor: [1] }, { constructor: [1] })).toBe(false);
+    expect(util.equalWith(strictEqual, { constructor: [1] }, { constructor: [1] })).toBe(true);
 
     expect(util.equalWith(strictEqual, { constructor: [1] }, { constructor: ['1'] })).toBe(false);
     expect(util.equalWith(abstractEqual, { constructor: [1] }, { constructor: ['1'] })).toBe(true);

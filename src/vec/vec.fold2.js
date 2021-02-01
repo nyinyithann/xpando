@@ -1,6 +1,6 @@
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 import Vec from './vec.core';
@@ -8,7 +8,7 @@ import Vec from './vec.core';
 function fold2(folder, state, source1, source2) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNullOrUndefined(state, 'state');
-  throwIfNotAFunction(folder, 'folder');
+  throwIfNotFunction(folder, 'folder');
   throwIfGeneratorFunction(folder, 'folder');
   throwIfNullOrUndefined(source1, 'source1');
   throwIfNullOrUndefined(source2, 'source2');

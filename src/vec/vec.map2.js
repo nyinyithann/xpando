@@ -1,13 +1,13 @@
 import {
   throwIfGeneratorFunction,
-  throwIfNotAFunction,
+  throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
 import Vec from './vec.core';
 
 function map2(mapping, source1, source2) {
   throwIfNullOrUndefined(this, 'this');
-  throwIfNotAFunction(mapping, 'mapping');
+  throwIfNotFunction(mapping, 'mapping');
   throwIfGeneratorFunction(mapping, 'mapping');
   throwIfNullOrUndefined(source1, 'source1');
   throwIfNullOrUndefined(source2, 'source2');

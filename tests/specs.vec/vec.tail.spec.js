@@ -8,15 +8,15 @@ describe('tail()', () => {
   });
 
   test('should return the rest of the vec except the first', () => {
-    expect(new Vec(1, 2, 3).tail()).toEqual(new Vec(2, 3));
-    expect(new Vec(1).tail()).toEqual(new Vec());
+    expect(new Vec(1, 2, 3).tail()).toStrictEqual(new Vec(2, 3));
+    expect(new Vec(1).tail()).toStrictEqual(new Vec());
   });
 
   test('invocation via call/apply/bind should work', () => {
     const tail = Vec.prototype.tail;
     const vec = Vec.init(3, (x) => x);
-    expect(tail.call(vec)).toEqual(new Vec(1, 2));
-    expect(tail.apply(vec)).toEqual(new Vec(1, 2));
-    expect(tail.bind(vec)()).toEqual(new Vec(1, 2));
+    expect(tail.call(vec)).toStrictEqual(new Vec(1, 2));
+    expect(tail.apply(vec)).toStrictEqual(new Vec(1, 2));
+    expect(tail.bind(vec)()).toStrictEqual(new Vec(1, 2));
   });
 });

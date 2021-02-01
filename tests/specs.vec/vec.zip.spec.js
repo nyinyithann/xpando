@@ -19,7 +19,7 @@ describe('zip()', () => {
       new Vec(4, 6),
       new Vec(5, 8),
     );
-    expect(expected).toEqual(actual);
+    expect(expected).toStrictEqual(actual);
   });
 
   test('invocation via call/apply/bind should be fine', () => {
@@ -33,8 +33,8 @@ describe('zip()', () => {
       new Vec(4, 6),
       new Vec(5, 8),
     );
-    expect(zip.call(vec1, vec2)).toEqual(actual);
-    expect(zip.apply(vec1, [vec2])).toEqual(actual);
-    expect(zip.bind(vec1)(vec2)).toEqual(actual);
+    expect(zip.call(vec1, vec2)).toStrictEqual(actual);
+    expect(zip.apply(vec1, [vec2])).toStrictEqual(actual);
+    expect(zip.bind(vec1)(vec2)).toStrictEqual(actual);
   });
 });

@@ -14,7 +14,7 @@ describe('average()', () => {
   test('should return average of the vec', () => {
     const vec = new Vec({ n: 1000 }, 1, 2, 3, { four: 4 }, [[5], [5]], [6], (() => {}), function* () {}, 0, 100, -1);
     expect(vec.average()).toBe([1, 2, 3, 0, 100, -1].reduce((x, y) => x + y) / vec.length);
-    expect(Vec.from([1, 2,, 3, 4]).average()).toEqual(10 / 5);
+    expect(Vec.from([1, 2,, 3, 4]).average()).toStrictEqual(10 / 5);
   });
 
   test('invocation via call/apply/bind should be fine', () => {

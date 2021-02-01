@@ -9,33 +9,33 @@ describe('take()', () => {
 
   test('if the count is zeo or less than zero, empty vec should be returned', () => {
     expect(new Vec(1, 2, 3).take(0))
-      .toEqual(new Vec());
+      .toStrictEqual(new Vec());
     expect(new Vec(1, 2, 3).take(-1))
-      .toEqual(new Vec());
+      .toStrictEqual(new Vec());
   });
 
   test('if the count is equal to or greater than the length of the vec, the vec should be returned', () => {
     expect(new Vec(1, 2, 3).take(3))
-      .toEqual(new Vec(1, 2, 3));
+      .toStrictEqual(new Vec(1, 2, 3));
     expect(new Vec(1, 2, 3).take(30))
-      .toEqual(new Vec(1, 2, 3));
+      .toStrictEqual(new Vec(1, 2, 3));
   });
 
   test('should return the first N elements of the vec', () => {
     const vec = new Vec(1, 2, 3, 4, 5);
     expect(vec.take(2))
-      .toEqual(new Vec(1, 2));
+      .toStrictEqual(new Vec(1, 2));
     expect(vec.take(5))
-      .toEqual(new Vec(1, 2, 3, 4, 5));
+      .toStrictEqual(new Vec(1, 2, 3, 4, 5));
     expect(vec.take(15))
-      .toEqual(new Vec(1, 2, 3, 4, 5));
+      .toStrictEqual(new Vec(1, 2, 3, 4, 5));
   });
 
   test('invocation via call/apply/bind should work', () => {
     const vec = new Vec(1, 2, 3, 4, 5);
     const take = Vec.prototype.take;
-    expect(take.call(vec, 2)).toEqual(new Vec(1, 2));
-    expect(take.apply(vec, [2])).toEqual(new Vec(1, 2));
-    expect(take.bind(vec)(2)).toEqual(new Vec(1, 2));
+    expect(take.call(vec, 2)).toStrictEqual(new Vec(1, 2));
+    expect(take.apply(vec, [2])).toStrictEqual(new Vec(1, 2));
+    expect(take.bind(vec)(2)).toStrictEqual(new Vec(1, 2));
   });
 });

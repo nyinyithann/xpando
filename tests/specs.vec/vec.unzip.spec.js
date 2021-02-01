@@ -17,7 +17,7 @@ describe('unzip()', () => {
     const vec1 = Vec.init(5, (x) => x + 1);
     const vec2 = Vec.init(5, (x) => x + x);
     const zipped = vec1.zip(vec2);
-    expect(zipped.unzip()).toEqual(new Vec(vec1, vec2));
+    expect(zipped.unzip()).toStrictEqual(new Vec(vec1, vec2));
   });
 
   test('invocation via call/apply/bind should be fine', () => {
@@ -26,8 +26,8 @@ describe('unzip()', () => {
     const zipped = vec1.zip(vec2);
     const unzip = Vec.prototype.unzip;
 
-    expect(unzip.call(zipped)).toEqual(new Vec(vec1, vec2));
-    expect(unzip.apply(zipped)).toEqual(new Vec(vec1, vec2));
-    expect(unzip.bind(zipped)()).toEqual(new Vec(vec1, vec2));
+    expect(unzip.call(zipped)).toStrictEqual(new Vec(vec1, vec2));
+    expect(unzip.apply(zipped)).toStrictEqual(new Vec(vec1, vec2));
+    expect(unzip.bind(zipped)()).toStrictEqual(new Vec(vec1, vec2));
   });
 });

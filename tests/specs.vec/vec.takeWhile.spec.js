@@ -15,18 +15,18 @@ describe('takeWhile()', () => {
 
   test('should return elements satisfied by predicate', () => {
     const vec = Vec.init(10, (x) => x + 1);
-    expect(vec.takeWhile((x) => x % 2 === 1)).toEqual(Vec.create(1, 1));
-    expect(vec.takeWhile((x) => x < 3)).toEqual(new Vec(1, 2));
-    expect(vec.takeWhile((x) => x > 3)).toEqual(new Vec());
-    expect(vec.takeWhile((x) => x > 0)).toEqual(vec);
+    expect(vec.takeWhile((x) => x % 2 === 1)).toStrictEqual(Vec.create(1, 1));
+    expect(vec.takeWhile((x) => x < 3)).toStrictEqual(new Vec(1, 2));
+    expect(vec.takeWhile((x) => x > 3)).toStrictEqual(new Vec());
+    expect(vec.takeWhile((x) => x > 0)).toStrictEqual(vec);
   });
 
   test('invocation via call/apply/bind should be fine', () => {
     const vec = Vec.init(10, (x) => x + 1);
     const takeWhile = Vec.prototype.takeWhile;
-    expect(takeWhile.call(vec, (x) => x % 2 === 1)).toEqual(Vec.create(1, 1));
-    expect(takeWhile.apply(vec, [(x) => x < 3])).toEqual(new Vec(1, 2));
-    expect(takeWhile.bind(vec)((x) => x > 3)).toEqual(new Vec());
+    expect(takeWhile.call(vec, (x) => x % 2 === 1)).toStrictEqual(Vec.create(1, 1));
+    expect(takeWhile.apply(vec, [(x) => x < 3])).toStrictEqual(new Vec(1, 2));
+    expect(takeWhile.bind(vec)((x) => x > 3)).toStrictEqual(new Vec());
   });
 
   test('predicate can be a method of an object', () => {
@@ -37,6 +37,6 @@ describe('takeWhile()', () => {
       },
     };
     const vec = Vec.init(10, (x) => x + 1);
-    expect(vec.takeWhile(obj.predicate, obj)).toEqual(vec);
+    expect(vec.takeWhile(obj.predicate, obj)).toStrictEqual(vec);
   });
 });

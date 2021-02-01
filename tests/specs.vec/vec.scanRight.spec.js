@@ -22,9 +22,9 @@ describe('scanRight()', () => {
   test('should return a vec with intermediary and final results', () => {
     const vec = Vec.init(5, (x) => x + 1);
     const expected = vec.scanRight((x, y) => x + y, 0);
-    expect(expected).toEqual(new Vec(15, 14, 12, 9, 5, 0));
-    expect(Vec.create(1, 1).scanRight((x, y) => x + y, 0)).toEqual(new Vec(1, 0));
-    expect(Vec.empty().scanRight((x, y) => x + y, 0)).toEqual(Vec.create(1, 0));
+    expect(expected).toStrictEqual(new Vec(15, 14, 12, 9, 5, 0));
+    expect(Vec.create(1, 1).scanRight((x, y) => x + y, 0)).toStrictEqual(new Vec(1, 0));
+    expect(Vec.empty().scanRight((x, y) => x + y, 0)).toStrictEqual(Vec.create(1, 0));
   });
 
   test('folder might be associated with a context', () => {
@@ -35,7 +35,7 @@ describe('scanRight()', () => {
     const folder = function (x, y) { return x + y + this.one; };
     const actual = new Vec(20, 18, 15, 11, 6, 0);
     const expected = vec.scanRight(folder, 0, context);
-    expect(actual).toEqual(expected);
+    expect(actual).toStrictEqual(expected);
   });
 
   test('invocation via call/apply/bind should be fine', () => {
@@ -43,8 +43,8 @@ describe('scanRight()', () => {
     const folder = (x, y) => x + y;
     const actual = new Vec(15, 14, 12, 9, 5, 0);
     const scanRight = Vec.prototype.scanRight;
-    expect(scanRight.call(vec, folder, 0)).toEqual(actual);
-    expect(scanRight.apply(vec, [folder, 0])).toEqual(actual);
-    expect(scanRight.bind(vec)(folder, 0)).toEqual(actual);
+    expect(scanRight.call(vec, folder, 0)).toStrictEqual(actual);
+    expect(scanRight.apply(vec, [folder, 0])).toStrictEqual(actual);
+    expect(scanRight.bind(vec)(folder, 0)).toStrictEqual(actual);
   });
 });

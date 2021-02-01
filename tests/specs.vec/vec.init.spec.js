@@ -4,7 +4,7 @@ describe('Vec.init()', () => {
   test('should generate list by invoking initializer up to the given count',
     () => {
       const vec = Vec.init(3, (x) => x);
-      expect(vec.length).toEqual(3);
+      expect(vec.length).toStrictEqual(3);
     });
 
   test('should throw TypeError if the initializer is a generator function or not a function',

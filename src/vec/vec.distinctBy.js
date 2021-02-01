@@ -1,5 +1,5 @@
 import Vec from './vec.core';
-import { compareWith, sameValueZeroEqual } from '../util';
+import { equalWith, sameValueZeroEqual } from '../util';
 import {
   throwIfGeneratorFunction,
   throwIfNotAFunction,
@@ -27,7 +27,7 @@ function distinctBy(projection, structuralEquality) {
     if (structuralEquality === true) {
       let hasKey = false;
       for (const k of set) {
-        if (compareWith(sameValueZeroEqual, k, key)) {
+        if (equalWith(sameValueZeroEqual, k, key)) {
           hasKey = true;
           break;
         }

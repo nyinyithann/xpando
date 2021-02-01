@@ -48,8 +48,5 @@
   "files": [
     "build/esm/*",
     "build/umd/*"
-  ],
-  "dependencies": {
-    "object-hash": "^2.1.1"
-  }
+  ]
 }

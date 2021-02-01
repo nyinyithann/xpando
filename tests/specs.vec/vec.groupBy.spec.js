@@ -46,7 +46,8 @@ describe('groupBy()', () => {
     const mrA = new Person('A', 20);
     const mrB = new Person('B', 15);
     const vec = new Vec(mrA, mrA, mrB);
-    expect(vec.groupBy(projection, true, obj))
+    const exp1 = vec.groupBy(projection, true, obj);
+    expect(exp1)
       .toStrictEqual(new Vec(
         new Vec('A', new Vec(mrA, mrA)), new Vec('B', new Vec(mrB)),
       ));

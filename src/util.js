@@ -1,5 +1,3 @@
-import hash from 'object-hash';
-
 /*
 Extracted from MDN articles : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
 double equals (==) will perform a type conversion when comparing two things,
@@ -109,44 +107,28 @@ export function isPrimitive(value) {
     || isString(value) || isBoolean(value);
 }
 
-export function getHasher() {
-  const cache = new WeakMap();
-
-  return function (value) {
-    if (isPrimitive(value)) {
-      return value;
-    }
-    let hashKey = cache.get(value);
-    if (!hashKey) {
-      hashKey = hash(value, { ignoreUnknown: true });
-      cache.set(value, hashKey);
-    }
-    return hashKey;
-  };
-}
-
 /* eslint-disable camelcase */
 const isArray = Array.isArray;
 
-const arrayCompare = (cmp, value1, value2) => {
-  const [x, ...xs] = value1; // .filter((xx) => xx !== value1 && xx !== value2);
-  const [y, ...ys] = value2; // .filter((yy) => yy !== value1 && yy !== value2);
+const arrayEqual = (cmp, value1, value2) => {
+  const [x, ...xs] = value1;
+  const [y, ...ys] = value2;
 
   if (x === undefined && y === undefined && xs.length === 0 && ys.length === 0) {
     return true;
   }
 
   if (isArray(x) && isArray(y)) {
-    return arrayCompare(cmp,
+    return arrayEqual(cmp,
       x.filter((xx) => xx !== x && xx !== y && xx !== value1),
-      y.filter((yy) => yy !== y && yy !== x && yy !== value2)) && arrayCompare(cmp, xs, ys);
+      y.filter((yy) => yy !== y && yy !== x && yy !== value2)) && arrayEqual(cmp, xs, ys);
   }
 
   if (isObject(x) && isObject(y)) {
     const wrappedValue_x = x.valueOf();
     const wrappedValue_y = y.valueOf();
     if (isPrimitive(wrappedValue_x) || isPrimitive(wrappedValue_y)) {
-      return cmp(wrappedValue_x, wrappedValue_y) && arrayCompare(cmp, xs, ys);
+      return cmp(wrappedValue_x, wrappedValue_y) && arrayEqual(cmp, xs, ys);
     }
 
     const rmvCRef = (obj, other) => {
@@ -163,17 +145,17 @@ const arrayCompare = (cmp, value1, value2) => {
       return obj;
     };
 
-    return arrayCompare(cmp,
+    return arrayEqual(cmp,
       Object.entries(rmvCRef(x, y)).sort(),
       Object.entries(rmvCRef(y, x)).sort())
-      && arrayCompare(cmp, xs, ys);
+      && arrayEqual(cmp, xs, ys);
   }
 
-  return Boolean(cmp(x, y)) && arrayCompare(cmp, xs, ys);
+  return Boolean(cmp(x, y)) && arrayEqual(cmp, xs, ys);
 };
 
 // eslint-disable-next-line no-unused-vars
-export function compareWith(cmp, value1, value2) {
+export function equalWith(cmp, value1, value2) {
   if (isGeneratorFunction(cmp) || isNotFunction(cmp)) {
     throw new TypeError(`${cmp} should be a function that takes two arguments and return a boolean result.`);
   }
@@ -184,7 +166,7 @@ export function compareWith(cmp, value1, value2) {
 
   if (isArray(value1) && isArray(value2)) {
     return cmp(value1, value2)
-      || arrayCompare(cmp, value1, value2);
+      || arrayEqual(cmp, value1, value2);
   }
 
   if (isObject(value1) && isObject(value2)) {
@@ -198,12 +180,12 @@ export function compareWith(cmp, value1, value2) {
       return cmp(wrappedValue_1, wrappedValue_2);
     }
 
-    return arrayCompare(cmp, Object.entries(value1).sort(), Object.entries(value2).sort());
+    return arrayEqual(cmp, Object.entries(value1).sort(), Object.entries(value2).sort());
   }
 
-  return arrayCompare(cmp, [value1], [value2]);
+  return arrayEqual(cmp, [value1], [value2]);
 }
 
-export function compare(value1, value2) {
-  return compareWith(sameValueZeroEqual, value1, value2);
+export function equal(value1, value2) {
+  return equalWith(sameValueZeroEqual, value1, value2);
 }

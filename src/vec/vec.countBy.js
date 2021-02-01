@@ -1,5 +1,5 @@
 import Vec from './vec.core';
-import { compareWith, sameValueZeroEqual } from '../util';
+import { equalWith, sameValueZeroEqual } from '../util';
 import {
   throwIfGeneratorFunction,
   throwIfNotAFunction,
@@ -23,16 +23,16 @@ function countBy(projection, structuralEquality) {
     const key = projection.call(thisArg, item);
     if (structuralEquality === true) {
       let count = 1;
-      let existingKey;
+      let foundKey = false;
       for (const k of map.keys()) {
-        if (compareWith(sameValueZeroEqual, k, key)) {
+        if (equalWith(sameValueZeroEqual, k, key)) {
           count = map.get(k) + 1;
-          existingKey = k;
+          foundKey = true;
           map.set(k, count);
           break;
         }
       }
-      if (!existingKey) {
+      if (!foundKey) {
         map.set(key, count);
       }
     } else {

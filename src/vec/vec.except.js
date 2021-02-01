@@ -1,5 +1,5 @@
 import { throwIfNullOrUndefined } from '../throwHelper';
-import { getHasher } from '../util';
+import { equalWith, sameValueZeroEqual } from '../util';
 
 function except(structuralEquality, ...itemsToExclude) {
   throwIfNullOrUndefined(this, 'this');
@@ -14,23 +14,22 @@ function except(structuralEquality, ...itemsToExclude) {
   }
 
   const set = new Set();
-  const getHashKey = getHasher();
 
   for (const item of itemsToExclude) {
     if (structuralEquality === true) {
-      const hashKey = getHashKey(item);
-      set.add(hashKey);
+      if ([...set].every((x) => !equalWith(sameValueZeroEqual, x, item))) {
+        set.add(item);
+      }
     } else {
       set.add(item);
     }
   }
 
-  return this.filter((x) => {
+  return this.filter((item) => {
     if (structuralEquality === true) {
-      const hashKey = getHashKey(x);
-      return !set.has(hashKey);
+      return [...set].every((x) => !equalWith(sameValueZeroEqual, x, item));
     }
-    return !set.has(x);
+    return !set.has(item);
   });
 }
 

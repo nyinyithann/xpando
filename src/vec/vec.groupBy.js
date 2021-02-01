@@ -1,5 +1,5 @@
 import Vec from './vec.core';
-import { equalWith, getHasher, sameValueZeroEqual } from '../util';
+import { equalWith, sameValueZeroEqual } from '../util';
 import {
   throwIfGeneratorFunction,
   throwIfNotAFunction,
@@ -45,10 +45,7 @@ function groupBy(projection, structuralEquality) {
   }
 
   const vec = new Vec();
-
-  for (const [k, v] of map.entries()) {
-    vec.push(new Vec(k, v));
-  }
+  map.forEach((v, k) => vec.push(Vec.of(k, v)));
   return vec;
 }
 

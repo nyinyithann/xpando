@@ -161,12 +161,14 @@ export function equalWith(cmp, value1, value2) {
   }
 
   if (isPrimitive(value1) || isPrimitive(value2)) {
-    return Boolean(cmp(value1, value2));
+    return cmp(isNotNull(value1) && isNotUndefined(value1) ? value1.valueOf() : value1,
+      isNotNull(value2) && isNotUndefined(value2) ? value2.valueOf() : value2);
   }
 
   if (isArray(value1) && isArray(value2)) {
-    return cmp(value1, value2)
-      || arrayEqual(cmp, value1, value2);
+    return value1.length !== value2.length
+      ? false
+      : cmp(value1, value2) || arrayEqual(cmp, value1, value2);
   }
 
   if (isObject(value1) && isObject(value2)) {
@@ -174,8 +176,8 @@ export function equalWith(cmp, value1, value2) {
     if (cmp(value1, value2)) { return true; }
 
     // check for values like Object(1), Object(true), Object("abc"), Object(Symbol.iterator), Object(1n), Object(true)
-    const wrappedValue_1 = value1.valueOf();
-    const wrappedValue_2 = value2.valueOf();
+    const wrappedValue_1 = typeof value1.valueOf === 'function' ? value1.valueOf() : value1;
+    const wrappedValue_2 = typeof value2.valueOf === 'function' ? value2.valueOf() : value2;
     if (isPrimitive(wrappedValue_1) || isPrimitive(wrappedValue_2)) {
       return cmp(wrappedValue_1, wrappedValue_2);
     }

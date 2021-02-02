@@ -6,7 +6,6 @@ import {
 import Vec from './vec.core';
 
 function forEach2(action, source1, source2) {
-  throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(action, 'action');
   throwIfGeneratorFunction(action, 'action');
   throwIfNullOrUndefined(source1, 'source1');

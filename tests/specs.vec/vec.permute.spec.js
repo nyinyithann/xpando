@@ -1,7 +1,12 @@
 import Vec from '../../src/vec/vec.main';
 
 describe('permute()', () => {
+  test('should throw exception if arguments are invalid', () => {
+    expect(() => Vec.prototype.permute.call(null, new Vec())).toThrow(TypeError);
+  });
+
   test('should return correct permutation', () => {
+    expect(new Vec().permute()).toStrictEqual(new Vec());
     const vec = new Vec(1, 2, 3);
     expect(vec.permute()).toStrictEqual(new Vec(
       Vec.of(1, 2, 3),

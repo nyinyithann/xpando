@@ -2,6 +2,11 @@ import Vec from '../../src/vec/vec.main';
 import empty from '../../src/vec/vec.empty';
 
 describe('chunkBySize()', () => {
+  test('should throw exception if arguments are invalid', () => {
+    expect(() => Vec.prototype.chunkBySize.call(null)).toThrow(TypeError);
+    expect(() => new Vec(1, 2, 3).chunkBySize(-1)).toThrow(TypeError);
+  });
+
   test('should return correct result', () => {
     const vec = Vec.init(10, (x) => x + 1);
 

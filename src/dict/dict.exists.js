@@ -15,8 +15,8 @@ function exists(predicate) {
 
   let thisArg;
 
-  if (arguments.length > 2) {
-    thisArg = arguments[2];
+  if (arguments.length > 1) {
+    thisArg = arguments[1];
   }
 
   for (const [k, v] of this.entries()) {

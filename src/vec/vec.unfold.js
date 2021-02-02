@@ -7,7 +7,6 @@ import { isNotNull, isNotUndefined } from '../util';
 import Vec from './vec.core';
 
 function unfold(generator, state) {
-  throwIfNullOrUndefined(this, 'this');
   throwIfNullOrUndefined(state, 'state');
   throwIfNotFunction(generator, 'generator');
   throwIfGeneratorFunction(generator, 'generator');

@@ -6,7 +6,6 @@ import {
 import Vec from './vec.core';
 
 function map2(mapping, source1, source2) {
-  throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(mapping, 'mapping');
   throwIfGeneratorFunction(mapping, 'mapping');
   throwIfNullOrUndefined(source1, 'source1');

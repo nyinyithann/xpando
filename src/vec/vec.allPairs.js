@@ -7,7 +7,7 @@ function allPairs(other) {
   throwIfNullOrUndefined(this, 'this');
 
   if (!Array.isArray(other) && !Vec.isVec(other)) {
-    throw TypeError('other should be Array or Vec.');
+    throw TypeError('other should be an Array or a Vec.');
   }
 
   const thisLen = this.length;

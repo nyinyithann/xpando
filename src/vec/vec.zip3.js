@@ -2,7 +2,6 @@ import { throwIfNullOrUndefined } from '../throwHelper';
 import Vec from './vec.core';
 
 function zip3(source1, source2, source3) {
-  throwIfNullOrUndefined(this, 'this');
   throwIfNullOrUndefined(source1, 'source1');
   throwIfNullOrUndefined(source2, 'source2');
   throwIfNullOrUndefined(source3, 'source2');

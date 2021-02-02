@@ -3,6 +3,12 @@
 import Vec from '../../src/vec/vec.main';
 
 describe('allPairs()', () => {
+  test('should throw exception if arguments are invalid', () => {
+    expect(() => Vec.prototype.allPairs.call(null, new Vec())).toThrow(TypeError);
+    expect(() => new Vec(1,2,3).allPairs({ n : 1})).toThrow(TypeError);
+    expect(() => new Vec(1,2,3).allPairs(new Vec())).not.toThrow(TypeError);
+  })
+
   test('should return correct result', () => {
     const vec = new Vec(1, 2, 3);
     const other = new Vec(4, 5);
@@ -20,8 +26,7 @@ describe('allPairs()', () => {
     const vec2 = new Vec();
     const other2 = new Vec(4, 5);
     const actual2 = vec2.allPairs(other2);
-    expect(actual2)
-      .toStrictEqual(new Vec());
+    expect(actual2).toStrictEqual(new Vec());
 
     const vec3 = new Vec();
     const other3 = new Vec();

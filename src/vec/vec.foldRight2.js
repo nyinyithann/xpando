@@ -6,7 +6,6 @@ import {
 import Vec from './vec.core';
 
 function foldRight2(folder, source1, source2, state) {
-  throwIfNullOrUndefined(this, 'this');
   throwIfNullOrUndefined(state, 'state');
   throwIfNotFunction(folder, 'folder');
   throwIfGeneratorFunction(folder, 'folder');

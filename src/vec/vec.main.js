@@ -57,7 +57,6 @@ Vec.empty = empty;
 Vec.init = init;
 Vec.create = create;
 Vec.isVec = isVec;
-Vec.transpose = transpose;
 Vec.some2 = some2;
 Vec.every2 = every2;
 Vec.fold2 = fold2;
@@ -107,5 +106,6 @@ Vec.prototype.chunkBySize = chunkBySize;
 Vec.prototype.binarySearch = binarySearch;
 Vec.prototype.permute = permute;
 Vec.prototype.allPairs = allPairs;
+Vec.prototype.transpose = transpose;
 
 export default Vec;

@@ -4,14 +4,10 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
-function exists(predicate) {
+function findKey(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');
-
-  if (this.size === 0) {
-    return false;
-  }
 
   let thisArg;
 
@@ -21,11 +17,11 @@ function exists(predicate) {
 
   for (const [k, v] of this) {
     if (predicate.call(thisArg, k, v)) {
-      return true;
+      return k;
     }
   }
 
-  return false;
+  return undefined;
 }
 
-export default exists;
+export default findKey;

@@ -1,33 +1,30 @@
 import Vec from './vec.core';
 import { isNull, isUndefined } from '../util';
+import empty from './vec.empty';
+import { throwIfNullOrUndefined } from '../throwHelper';
 
-function transpose(source) {
-  if (!Array.isArray(source) && !Vec.isVec(source)) {
-    throw TypeError('source should be Array or Vec.');
-  }
+function transpose() {
+  throwIfNullOrUndefined(this, 'this');
 
-  if (source.length === 0) {
-    throw TypeError('source should have at least one element of type Array or Vec.');
+  if (this.length === 0) {
+    return empty();
   }
 
   let innerLen;
-  for (let i = 0; i < source.length; i += 1) {
-    if (!Array.isArray(source[i]) && !Vec.isVec(source[i])) {
-      throw TypeError('source should contain only Arrays or Vecs.');
-    }
+  for (let i = 0; i < this.length; i += 1) {
     if (isNull(innerLen) || isUndefined(innerLen)) {
-      innerLen = source[i].length;
-    } else if (innerLen !== source[i].length) {
+      innerLen = this[i].length;
+    } else if (innerLen !== this[i].length) {
       throw TypeError('all Array or Vec elements of source should have the same length.');
     }
   }
 
   const result = new Vec(innerLen);
-  const len = source.length;
+  const len = this.length;
   for (let x = 0; x < innerLen; x += 1) {
     result[x] = new Vec(len);
     for (let y = 0; y < len; y += 1) {
-      result[x][y] = source[y][x];
+      result[x][y] = this[y][x];
     }
   }
 

@@ -3,15 +3,12 @@ import {
   throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
+import Dict from './dict.core';
 
-function exists(predicate) {
+function partition(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');
-
-  if (this.size === 0) {
-    return false;
-  }
 
   let thisArg;
 
@@ -19,13 +16,18 @@ function exists(predicate) {
     thisArg = arguments[1];
   }
 
+  const left = new Dict();
+  const right = new Dict();
+
   for (const [k, v] of this) {
     if (predicate.call(thisArg, k, v)) {
-      return true;
+      left.set(k, v);
+    } else {
+      right.set(k, v);
     }
   }
 
-  return false;
+  return [left, right];
 }
 
-export default exists;
+export default partition;

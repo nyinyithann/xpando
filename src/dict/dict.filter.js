@@ -3,15 +3,12 @@ import {
   throwIfNotFunction,
   throwIfNullOrUndefined,
 } from '../throwHelper';
+import Dict from './dict.core';
 
-function exists(predicate) {
+function filter(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');
-
-  if (this.size === 0) {
-    return false;
-  }
 
   let thisArg;
 
@@ -19,13 +16,15 @@ function exists(predicate) {
     thisArg = arguments[1];
   }
 
+  const dict = new Dict();
+
   for (const [k, v] of this) {
     if (predicate.call(thisArg, k, v)) {
-      return true;
+      dict.set(k, v);
     }
   }
 
-  return false;
+  return dict;
 }
 
-export default exists;
+export default filter;

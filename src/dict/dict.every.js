@@ -4,14 +4,10 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
-function exists(predicate) {
+function every(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');
-
-  if (this.size === 0) {
-    return false;
-  }
 
   let thisArg;
 
@@ -20,12 +16,12 @@ function exists(predicate) {
   }
 
   for (const [k, v] of this) {
-    if (predicate.call(thisArg, k, v)) {
-      return true;
+    if (!predicate.call(thisArg, k, v)) {
+      return false;
     }
   }
 
-  return false;
+  return true;
 }
 
-export default exists;
+export default every;

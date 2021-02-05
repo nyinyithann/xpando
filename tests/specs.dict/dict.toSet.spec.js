@@ -6,9 +6,10 @@ describe('toSet()', () => {
     expect(() => toSet.call(null)).toThrow(TypeError);
   });
 
-  test('should return an array', () => {
+  test('should return a set', () => {
+    const one = ['one', 1];
     const dict = new Dict(
-      [['one', 1], ['two', 2], ['three', 3], ['four', 4], ['five', 5]],
+      [one, one, one, ['two', 2], ['three', 3], ['four', 4], ['five', 5]],
     );
 
     const toSet = Dict.prototype.toSet;

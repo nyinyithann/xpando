@@ -12,6 +12,8 @@ describe('dict.core', () => {
     expect([...dict.keys()]).toStrictEqual([1, 2, 3]);
     dict.set(4, 'four');
     expect(dict.get(4)).toBe('four');
+
+    expect(dict.toString()).toStrictEqual('[object Dict]');
   });
 
   test('toString tag should be [object Dict]', () => {

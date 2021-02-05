@@ -14,6 +14,7 @@ import toVec from './dict.toVec';
 import toSet from './dict.toSet';
 import change from './dict.change';
 import of from './dict.of';
+import toUniq from './dict.toUniq';
 
 Dict.of = of;
 Dict.empty = empty;
@@ -30,6 +31,7 @@ Dict.prototype.isEmpty = isEmpty;
 Dict.prototype.toArray = toArray;
 Dict.prototype.toVec = toVec;
 Dict.prototype.toSet = toSet;
+Dict.prototype.toUniq = toUniq;
 Dict.prototype.change = change;
 
 export default Dict;

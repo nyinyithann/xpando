@@ -14,6 +14,12 @@ import toVec from './uniq.toVec';
 import toMap from './uniq.toMap';
 import toDict from './uniq.toDict';
 import difference from './uniq.difference';
+import intersect from './uniq.intersect';
+import isProperSupersetOf from './uniq.isProperSupersetOf';
+import isProperSubsetOf from './uniq.isProperSubsetOf';
+import isSubsetOf from './uniq.subsetOf';
+import isSupersetOf from './uniq.isSupersetOf';
+import union from './uniq.union';
 
 Uniq.empty = empty;
 Uniq.of = of;
@@ -31,5 +37,11 @@ Uniq.prototype.toVec = toVec;
 Uniq.prototype.toMap = toMap;
 Uniq.prototype.toDict = toDict;
 Uniq.prototype.difference = difference;
+Uniq.prototype.intersect = intersect;
+Uniq.prototype.isProperSubsetOf = isProperSubsetOf;
+Uniq.prototype.isProperSupersetOf = isProperSupersetOf;
+Uniq.prototype.isSubsetOf = isSubsetOf;
+Uniq.prototype.isSupersetOf = isSupersetOf;
+Uniq.prototype.union = union;
 
 export default Uniq;

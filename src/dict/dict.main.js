@@ -8,7 +8,7 @@ import foldRight from './dict.foldRight';
 import every from './dict.every';
 import map from './dict.map';
 import partition from './dict.partition';
-import isEmpty from '../vec/vec.isEmpty';
+import isEmpty from './dict.isEmpty';
 import toArray from './dict.toArray';
 import toVec from './dict.toVec';
 import toSet from './dict.toSet';

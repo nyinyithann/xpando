@@ -18,7 +18,7 @@ function foldRight(folder, state) {
 
   let s = state;
 
-  const thisArray = [...this];
+  const thisArray = [...this.values()];
   for (let i = thisArray.length - 1; i >= 0; i -= 1) {
     s = folder.call(thisArg, thisArray[i], s);
   }

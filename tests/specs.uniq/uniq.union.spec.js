@@ -1,10 +1,14 @@
 import Uniq from '../../src/uniq/uniq.main';
+import Vec from '../../src/vec/vec.core';
 
 describe('union', () => {
   test('should throw TypeError for invalid arguments', () => {
     const union = Uniq.prototype.union;
     expect(() => union.call(null, new Uniq())).toThrow(TypeError);
     expect(() => union.call(new Uniq(), null)).toThrow(TypeError);
+
+    expect(() => union.call(new Uniq(), new Vec(), [], { n: 10 })).toThrow(TypeError);
+    expect(() => union.call(new Uniq(), { n: 10 })).toThrow(TypeError);
   });
 
   test('should return correct result', () => {

@@ -1,9 +1,11 @@
 import { terser } from 'rollup-plugin-terser';
+import babel from '@rollup/plugin-babel';
+import { eslint } from 'rollup-plugin-eslint';
 
 export default [
   {
     input: 'src/index.js',
-    plugins: [terser()],
+    plugins: [terser(), babel({ babelHelpers: 'bundled' }), eslint()],
     output: {
       file: 'build/umd/xpando.js',
       format: 'umd',
@@ -13,7 +15,7 @@ export default [
   },
   {
     input: 'src/index.js',
-    plugins: [terser()],
+    plugins: [terser(), babel({ babelHelpers: 'bundled' }), eslint()],
     output: {
       file: 'build/esm/xpando.js',
       format: 'esm',

@@ -5,6 +5,32 @@ import {
 } from '../throwHelper';
 import Vec from './vec.core';
 
+/** @module */
+
+/**
+ * <h3> Vec.foldRight2(folder, source1, source2, state) ⇒ value </h3>
+ * Apply a function to pairs of elements drawn from the two collections, right-to-left,
+ * threading an accumulator argument through the computation.
+ * The two input arrays must have the same lengths.
+ * @param folder The function to update the state given the input elements.
+ * @param state The initial state.
+ * @param source1 The first input array or vector.
+ * @param source2 The second input array or vector.
+ * @returns The final state.
+ * @exception Throws TypeError when
+ * - state is null or undefined
+ * - folder is not a function
+ * - folder is a generator function
+ * - source1 is neither an array nor a vector
+ * - source2 is neither an array nor a vector
+ * @example
+ * const oneToHundred_1 = Vec.init(100, x => x + 1);
+ * const oneToHundred_2 = Vec.init(100, x => x + 1);
+ * const folderRight = (x, y, s) => x + y + s;
+ * const foldRightState = Vec.foldRight2(folderRight, oneToHundred_1, oneToHundred_2, 0);
+ * console.log(foldRightState);
+ * // => 10100
+ */
 function foldRight2(folder, source1, source2, state) {
   throwIfNullOrUndefined(state, 'state');
   throwIfNotFunction(folder, 'folder');

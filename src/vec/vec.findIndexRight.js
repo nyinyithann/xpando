@@ -4,6 +4,21 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> findIndexRight(predicate) ⇒ number </h3>
+ * Returns the index of the last element in the vector that satisfies the given predicate.
+ * Returns -1 if none of the elements satisfy the predicate.
+ * @param predicate The function to test the input elements.
+ * @returns {number} The index of the first element in the array that satisfies the given predicate.
+ * @exception Throws TypeError if predicate is a generator function or not a function.
+ * @example
+ * const nums = Vec.of(1, 2, 3, 4, 5, 6, 7, 8);
+ * const indexRight = nums.findIndexRight(x => x % 2 === 1);
+ * console.log(indexRight);
+ * // => 6
+ */
 function findIndexRight(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');

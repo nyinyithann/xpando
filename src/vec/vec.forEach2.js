@@ -5,6 +5,28 @@ import {
 } from '../throwHelper';
 import Vec from './vec.core';
 
+/** @module */
+
+/**
+ * <h3> Vec.forEach2(action, source1, source2) </h3>
+ * Applies the given function to pair of elements drawn from matching indices in two arrays or vectors.
+ * The two input arrays or vectors must have the same lengths.
+ * @param action The function to apply.
+ * @param source1 The first input array or vector.
+ * @param source2 The second input array or vector.
+ * @exception Throws TypeError if
+ * - action is a generator function
+ * - action is not a function
+ * - source1 is neither an array nor a vector.
+ * - source2 is neither an array nor a vector.
+ * @example
+ * const charVec_1 = Vec.of('a', 'b', 'c', 'd');
+ * const charVec_2 = Vec.of('d', 'e', 'f', 'g');
+ * const charVecResult = new Vec();
+ * Vec.forEach2((a, b, index) => charVecResult.push(a + b + index), charVec_1, charVec_2);
+ * console.log(charVecResult);
+ * // => [ 'ad0', 'be1', 'cf2', 'dg3' ]
+ */
 function forEach2(action, source1, source2) {
   throwIfNotFunction(action, 'action');
   throwIfGeneratorFunction(action, 'action');

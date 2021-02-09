@@ -1,4 +1,4 @@
-  <h3> allPairs(source1, source2) ⇒ Vec </h3>
+  <h3> Vec.allPairs(source1, source2) ⇒ Vec </h3>
 Returns a new vector that contains all pairings of elements from the first and second arrays or vectors.
 
 **Returns**: <code>Vec</code> - The resulting vector of pairs.  
@@ -80,7 +80,309 @@ const ascendingIndex = randomNums.binarySearch(33); // default comparer is used 
 console.log(ascendingIndex);
 // => 5
 ```
-<h3> init(count, initializer) ⇒ Vec </h3>
+<h3> chunkBySize(chunkSize) ⇒ Vec </h3>
+Divides the source vector into chunks of size at most chunkSize.
+
+**Returns**: <code>Vec</code> - The vector divided into chunks.  
+**Throws**:
+
+- Throws TypeError if chunkSize is negative.
+
+
+| Param | Description |
+| --- | --- |
+| chunkSize | The maximum size of each chunk. |
+
+**Example**  
+```js
+const vec = Vec.init(10, x => x + 1);
+const chunks = vec.chunkBySize(3);
+console.log(chunks);
+// => [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ]
+```
+<h3> copy() ⇒ Vec </h3>
+Builds a new vector that contains the elements of the source vector.
+
+**Returns**: <code>Vec</code> - A copy of the source vector.  
+**Example**  
+```js
+const sourceVec = Vec.init(5, x => x);
+const copyVec = sourceVec.copy();
+console.log(copyVec);
+// => [ 0, 1, 2, 3, 4 ]
+```
+<h3> countBy(projection, structuralEquality) ⇒ Vec </h3>
+Applies a key-generating function to each element of a vector and
+returns a vector yielding unique keys and their number of occurrences in the original array.
+
+**Returns**: <code>Vec</code> - The result vector.  
+**Throws**:
+
+- Throws TypeError if struturalEquality parameter is null or undefined; or projection parameter is a generator function
+or not a function.
+
+
+| Param | Description |
+| --- | --- |
+| projection | A function transforming each item of the input vector into a key to be compared against the others. |
+| structuralEquality | If true, deep equality will be used for comparing key, otherwise; same-value-zero equality. |
+
+**Example**  
+```js
+const countByVec = new Vec(1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5);
+const counts_1 = countByVec.countBy(x => x, false);
+console.log(counts_1);
+// => [ [ 1, 5 ], [ 2, 5 ], [ 3, 3 ], [ 4, 3 ], [ 5, 1 ] ]
+const counts_2 = countByVec.countBy(x => x % 2 === 0, false);
+console.log(counts_2);
+// => [ [ false, 9 ], [ true, 8 ] ]
+```
+<h3> Vec.create(count, value) ⇒ Vec </h3>
+Creates a vector whose elements are all initially the given value.
+
+**Returns**: <code>Vec</code> - The created vector.  
+
+| Param | Description |
+| --- | --- |
+| count | The length of the vector to create. |
+| value | The value for the elements. |
+
+**Example**  
+```js
+const createdVec = Vec.create(10, 2);
+console.log(createdVec);
+// => [ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 ]
+```
+<h3> distinct(structuralEquality) ⇒ Vec </h3>
+Returns a vector that contains no duplicate entries.
+If an element occurs multiple times in the vector then the later occurrences are discarded.
+
+**Returns**: <code>Vec</code> - The result vector.  
+**Throws**:
+
+- Throws TypeError if struturalEquality parameter is null or undefined.
+
+
+| Param | Description |
+| --- | --- |
+| structuralEquality | If true, deep equality will be used for comparing key, otherwise; same-value-zero equality. |
+
+**Example**  
+```js
+const mixedVec = Vec.of(1, 1, 1, 2, 2, 2, 3, 3, 3, { n: 1 }, { n: 1 });
+const distinctVec_1 = mixedVec.distinct(false);
+console.log(distinctVec_1);
+// => [ 1, 2, 3, { n: 1 }, { n: 1 } ]
+const distinctVec_2 = mixedVec.distinct(true);
+console.log(distinctVec_2);
+// => [ 1, 2, 3, { n: 1 } ]
+```
+<h3> distinctBy(projection, structuralEquality) ⇒ Vec </h3>
+Returns a vector that contains no duplicate entries according to the equality comparisons on the keys returned by the given key-generating function.
+If an element occurs multiple times in the array then the later occurrences are discarded.
+
+**Returns**: <code>Vec</code> - The result vector.  
+**Throws**:
+
+- Throws TypeError if struturalEquality parameter is null or undefined; or projection parameter is a generator function
+
+
+| Param | Description |
+| --- | --- |
+| projection | A function transforming the vector items into comparable keys. |
+| structuralEquality | If true, deep equality will be used for comparing key, otherwise; same-value-zero equality. |
+
+**Example**  
+```js
+const mixedVec = Vec.of(
+   { name: "Fsharp", family: { name: "ML" } },
+   { name: "OCaml", family: { name: "ML" } },
+   { name: "C++", family: { name: "Smalltalk" } }
+);
+const distinctedByVec_1 = mixedVec.distinctBy(x => x.family, false);
+console.log(distinctedByVec_1);
+// =>
+ [ { name: 'Fsharp', family: { name: 'ML' } },
+   { name: 'OCaml', family: { name: 'ML' } },
+   { name: 'C++', family: { name: 'Smalltalk' } } ]
+
+const distinctedByVec_2 = mixedVec.distinctBy(x => x.family, true);
+console.log(distinctedByVec_2);
+// =>
+ [ { name: 'Fsharp', family: { name: 'ML' } },
+   { name: 'C++', family: { name: 'Smalltalk' } } ]
+```
+<h3> empty() ⇒ Vec </h3>
+Returns an empty vector.
+
+**Returns**: <code>Vec</code> - The empty vector.  
+<h3> Vec.every2(predicate, source1, source2) ⇒ boolean </h3>
+Tests if all corresponding elements of the vector satisfy the given predicate pairwise.
+The predicate is applied to matching elements in the two collections up to the lesser of the two lengths of the collections.
+If any application returns false then the overall result is false and no further elements are tested.
+Otherwise; if one collection is longer than the other then TypeError will be thrown. Otherwise; true is returned.
+
+**Returns**: <code>boolean</code> - True if all of the array elements satisfy the predicate.  
+**Throws**:
+
+- TypeError will be thrown when
+ - predicate is not a function
+ - predicate is a generator function
+ - source1 is not an array or a vector
+ - source2 is not an array or a vector
+ - the lengths of source1 and source2 are not the same
+
+
+| Param | Description |
+| --- | --- |
+| predicate | The function to test the input elements. |
+| source1 | The first input array or vector. |
+| source2 | The second input array or vector. |
+
+**Example**  
+```js
+const vec1 = Vec.of(2, 4, 6);
+const vec2 = Vec.of(8, 10, 12);
+const isEven = x => x % 2 === 0;
+const allEven = Vec.every2(isEven, vec1, vec2);
+console.log(allEven);
+// => true
+```
+<h3> except(structuralEquality, ...itemsToExclude) ⇒ Vec </h3>
+Returns a new list with the distinct elements of the input array which do not appear in the itemsToExclude sequence.
+
+**Returns**: <code>Vec</code> - A vector that contains the distinct elements of source vector that do not appear in itemsToExclude.  
+**Throws**:
+
+- Throws TypeError if structuralEquality parameter is null or undefined.
+
+
+| Param | Description |
+| --- | --- |
+| structuralEquality | If true, deep equality will be used for comparison, otherwise; same-value-zero equality. |
+| ...itemsToExclude | A sequence whose elements that also occur in the source vector will cause those elements to be removed from the result. |
+
+**Example**  
+```js
+const nObjVec = Vec.of({ n: 1 }, { n: 1 }, { n: 2 }, { n: 2 }, { n: 2 }, { n: 4 });
+const except_1 = nObjVec.except(false, { n: 1 }, { n: 4 });
+console.log(except_1);
+// no items excluded under same-value-zero equality, no objects are equal to one another unless they are referencing to the same instance
+// => [ { n: 1 }, { n: 1 }, { n: 2 }, { n: 2 }, { n: 2 }, { n: 4 } ]
+const except_2 = nObjVec.except(true, { n: 1 }, { n: 2 });
+console.log(except_2);
+// => [ { n: 4 } ]
+```
+<h3> findIndexRight(predicate) ⇒ number </h3>
+Returns the index of the last element in the vector that satisfies the given predicate.
+Returns -1 if none of the elements satisfy the predicate.
+
+**Returns**: <code>number</code> - The index of the first element in the array that satisfies the given predicate.  
+**Throws**:
+
+- Throws TypeError if predicate is a generator function or not a function.
+
+
+| Param | Description |
+| --- | --- |
+| predicate | The function to test the input elements. |
+
+**Example**  
+```js
+const nums = Vec.of(1, 2, 3, 4, 5, 6, 7, 8);
+const indexRight = nums.findIndexRight(x => x % 2 === 1);
+console.log(indexRight);
+// => 6
+```
+<h3> findRight(predicate) ⇒ element of the vector or undefined </h3>
+Returns the last element for which the given function returns 'true'.
+Returns undefined if none of the elements satisfy the predicate.
+
+**Returns**: The last element for which predicate returns true.  
+**Throws**:
+
+- Throws TypeError if predicate is a generator function or not a function.
+
+
+| Param | Description |
+| --- | --- |
+| predicate | The function to test the input elements. |
+
+**Example**  
+```js
+const p1 = { x : 10, y : 50};
+const p2 = { x : 10, y : 60};
+const p3 = { x : 10, y : 70};
+const nums = new Vec(p1, p2, p3);
+const result = nums.findRight(({x}) => x === 10);
+console.log(result);
+// => { x: 10, y: 70 }
+```
+<h3> Vec.fold2(folder, state, source1, source2) ⇒ a value </h3>
+Applies a function to pairs of elements drawn from the two collections, left-to-right,
+threading an accumulator argument through the computation.
+The two input arrays must have the same lengths.
+
+**Returns**: The final state.  
+**Throws**:
+
+- Throws TypeError when
+- state is null or undefined
+- folder is not a function
+- folder is a generator function
+- source1 is neither an array nor a vector
+- source2 is neither an array nor a vector
+
+
+| Param | Description |
+| --- | --- |
+| folder | The function to update the state given the input elements. |
+| state | The initial state. |
+| source1 | The first input array or vector. |
+| source2 | The second input array or vector. |
+
+**Example**  
+```js
+const oneToTen_1 = Vec.init(10, x => x + 1);
+const oneToTen_2 = Vec.init(10, x => x + 1);
+const folder = (s, x, y) => x + y + s;
+const state = Vec.fold2(folder, 0, oneToTen_1, oneToTen_2);
+console.log(state);
+// => 110
+```
+<h3> Vec.foldRight2(folder, source1, source2, state) ⇒ a value </h3>
+Apply a function to pairs of elements drawn from the two collections, right-to-left,
+threading an accumulator argument through the computation.
+The two input arrays must have the same lengths.
+
+**Returns**: The final state.  
+**Throws**:
+
+- Throws TypeError when
+- state is null or undefined
+- folder is not a function
+- folder is a generator function
+- source1 is neither an array nor a vector
+- source2 is neither an array nor a vector
+
+
+| Param | Description |
+| --- | --- |
+| folder | The function to update the state given the input elements. |
+| state | The initial state. |
+| source1 | The first input array or vector. |
+| source2 | The second input array or vector. |
+
+**Example**  
+```js
+const oneToHundred_1 = Vec.init(100, x => x + 1);
+const oneToHundred_2 = Vec.init(100, x => x + 1);
+const folderRight = (x, y, s) => x + y + s;
+const foldRightState = Vec.foldRight2(folderRight, oneToHundred_1, oneToHundred_2, 0);
+console.log(foldRightState);
+// => 10100
+```
+<h3> Vec.init(count, initializer) ⇒ Vec </h3>
 Generate a new Vec by invoking initializer function passed as the argument up to the given count.
 
 **Returns**: <code>Vec</code> - The result vector.  

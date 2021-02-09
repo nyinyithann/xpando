@@ -17,7 +17,11 @@ import {
  * @returns {Vec} The result vector.
  * @exception Throws TypeError if struturalEquality parameter is null or undefined; or projection parameter is a generator function
  * @example
- * const mixedVec = Vec.of({ name: "Fsharp", family: { name: "ML" } }, { name: "OCaml", family: { name: "ML" } }, { name: "C++", family: { name: "Smalltalk" } });
+ * const mixedVec = Vec.of(
+ *    { name: "Fsharp", family: { name: "ML" } },
+ *    { name: "OCaml", family: { name: "ML" } },
+ *    { name: "C++", family: { name: "Smalltalk" } }
+ * );
  * const distinctedByVec_1 = mixedVec.distinctBy(x => x.family, false);
  * console.log(distinctedByVec_1);
  * // =>

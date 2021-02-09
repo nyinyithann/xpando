@@ -2,6 +2,20 @@ import empty from './vec.empty';
 import Vec from './vec.core';
 import { throwIfNegativeNumber, throwIfNullOrUndefined } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> chunkBySize(chunkSize) ⇒ Vec </h3>
+ * Divides the source vector into chunks of size at most chunkSize.
+ * @param chunkSize The maximum size of each chunk.
+ * @returns {Vec} The vector divided into chunks.
+ * @exception Throws TypeError if chunkSize is negative.
+ * @example
+ * const vec = Vec.init(10, x => x + 1);
+ * const chunks = vec.chunkBySize(3);
+ * console.log(chunks);
+ * // => [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ]
+ */
 function chunkBySize(chunkSize) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNegativeNumber(chunkSize, 'chunkSize');

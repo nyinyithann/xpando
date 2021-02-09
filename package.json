@@ -42,7 +42,7 @@
     "test": "jest --config jest.config.js",
     "test-more": "jest --config jest.config.js tests/util",
     "test-specs": "jest --config jest.config.js tests/specs.vec",
-    "doc": "jsdoc2md --partial docs.hbs body.hbs main-index.hbs --files src/*.js > api.md",
+    "vec-doc": "jsdoc2md --partial docs.hbs body.hbs main-index.hbs --files src/vec/*.js > vec.api.md",
     "prepare": "rollup --config",
     "build": "npm run lint & npm run test & npm run doc & npm run prepare",
     "iv": "npm --no-git-tag-version version patch",

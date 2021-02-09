@@ -66,6 +66,7 @@ Vec.map2 = map2;
 Vec.map3 = map3;
 Vec.zip3 = zip3;
 Vec.unfold = unfold;
+Vec.allPairs = allPairs;
 
 Vec.prototype.isEmpty = isEmpty;
 Vec.prototype.copy = copy;
@@ -105,7 +106,6 @@ Vec.prototype.mapFoldRight = mapFoldRight;
 Vec.prototype.chunkBySize = chunkBySize;
 Vec.prototype.binarySearch = binarySearch;
 Vec.prototype.permute = permute;
-Vec.prototype.allPairs = allPairs;
 Vec.prototype.transpose = transpose;
 
 export default Vec;

@@ -1,5 +1,6 @@
 import Vec from '../../src/vec/vec.main';
 import empty from '../../src/vec/vec.empty';
+/* eslint-disable */
 
 describe('chunkBySize()', () => {
   test('should throw exception if arguments are invalid', () => {
@@ -18,7 +19,7 @@ describe('chunkBySize()', () => {
       new Vec(1, 2, 3),
       new Vec(4, 5, 6),
       new Vec(7, 8, 9),
-      Vec.of(10),
+      Vec.of(10)
     );
     expect(actual1).toStrictEqual(expected1);
 
@@ -28,26 +29,26 @@ describe('chunkBySize()', () => {
       new Vec(3, 4),
       new Vec(5, 6),
       new Vec(7, 8),
-      new Vec(9, 10),
+      new Vec(9, 10)
     );
     expect(actual2).toStrictEqual(expected2);
 
     const expected3 = vec.chunkBySize(9);
     const actual3 = new Vec(
       new Vec(1, 2, 3, 4, 5, 6, 7, 8, 9),
-      Vec.of(10),
+      Vec.of(10)
     );
     expect(actual3).toStrictEqual(expected3);
 
     const expected4 = vec.chunkBySize(10);
     const actual4 = new Vec(
-      new Vec(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+      new Vec(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     );
     expect(actual4).toStrictEqual(expected4);
   });
 
   expect(Vec.from([,, 1, 2, 3]).chunkBySize(4)).toStrictEqual(new Vec(
     Vec.from([,, 1, 2]),
-    Vec.of(3),
+    Vec.of(3)
   ));
 });

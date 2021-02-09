@@ -5,6 +5,32 @@ import {
 } from '../throwHelper';
 import Vec from './vec.core';
 
+/** @module */
+
+/**
+ * <h3> Vec.every2(predicate, source1, source2) ⇒ boolean </h3>
+ * Tests if all corresponding elements of the vector satisfy the given predicate pairwise.
+ * The predicate is applied to matching elements in the two collections up to the lesser of the two lengths of the collections.
+ * If any application returns false then the overall result is false and no further elements are tested.
+ * Otherwise; if one collection is longer than the other then TypeError will be thrown. Otherwise; true is returned.
+ * @param predicate The function to test the input elements.
+ * @param source1 The first input array or vector.
+ * @param source2 The second input array or vector.
+ * @returns {boolean} True if all of the array elements satisfy the predicate.
+ * @exception TypeError will be thrown when
+ *  - predicate is not a function
+ *  - predicate is a generator function
+ *  - source1 is not an array or a vector
+ *  - source2 is not an array or a vector
+ *  - the lengths of source1 and source2 are not the same
+ * @example
+ * const vec1 = Vec.of(2, 4, 6);
+ * const vec2 = Vec.of(8, 10, 12);
+ * const isEven = x => x % 2 === 0;
+ * const allEven = Vec.every2(isEven, vec1, vec2);
+ * console.log(allEven);
+ * // => true
+ */
 function every2(predicate, source1, source2) {
   throwIfNotFunction(predicate, 'predicate');
   throwIfGeneratorFunction(predicate, 'predicate');

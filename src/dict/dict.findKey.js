@@ -4,6 +4,22 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> findKey(predicate) ⇒ key|undefined </h3>
+ * Evaluates the function on each mapping in the collection.
+ * Returns the key for the first mapping where the function returns 'true'.
+ * @param predicate The function to test the input elements.
+ * @returns {key|undefined} The first key for which the predicate evaluates true or undefined if key is not found.
+ * @example
+ * const dict_5 = new Dict(
+ *    [[1, "one"], [2, "two"], [3, "three"], [4, "four"]]
+ * );
+ * const keyFound = dict_5.findKey((k, v) => v === "four");
+ * console.log(keyFound);
+ * // => 4
+ */
 function findKey(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');

@@ -17,7 +17,7 @@ describe('zip()', () => {
       new Vec(2, 2),
       new Vec(3, 4),
       new Vec(4, 6),
-      new Vec(5, 8),
+      new Vec(5, 8)
     );
     expect(expected).toStrictEqual(actual);
   });
@@ -31,7 +31,7 @@ describe('zip()', () => {
       new Vec(2, 2),
       new Vec(3, 4),
       new Vec(4, 6),
-      new Vec(5, 8),
+      new Vec(5, 8)
     );
     expect(zip.call(vec1, vec2)).toStrictEqual(actual);
     expect(zip.apply(vec1, [vec2])).toStrictEqual(actual);

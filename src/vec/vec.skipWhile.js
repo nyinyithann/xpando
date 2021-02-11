@@ -5,6 +5,21 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> skipWhile(predicate) ⇒ Vec </h3>
+ * Bypasses elements in the vector while the given predicate returns True,
+ * and then returns the remaining elements in a new vector.
+ * @param predicate A function that evaluates an element of the vector to a boolean value.
+ * @returns {Vec} The result vector.
+ * @exception {TypeError} when predicate is not a function or predicate is a generator function.
+ * @example
+ * const randomVec = Vec.of(11, 3, 2, 4, 100, 65, 100, 2,);
+ * const skipWhileResult = randomVec.skipWhile(x => x < 100);
+ * console.log(skipWhileResult);
+ * // => [ 100, 65, 100, 2 ]
+ */
 function skipWhile(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');

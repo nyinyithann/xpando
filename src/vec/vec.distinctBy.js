@@ -15,7 +15,7 @@ import {
  * @param projection A function transforming the vector items into comparable keys.
  * @param structuralEquality If true, deep equality will be used for comparing key, otherwise; same-value-zero equality.
  * @returns {Vec} The result vector.
- * @exception Throws TypeError if struturalEquality parameter is null or undefined; or projection parameter is a generator function
+ *  @exception {TypeError} if struturalEquality parameter is null or undefined; or projection parameter is a generator function
  * @example
  * const mixedVec = Vec.of(
  *    { name: "Fsharp", family: { name: "ML" } },

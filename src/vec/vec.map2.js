@@ -5,6 +5,30 @@ import {
 } from '../throwHelper';
 import Vec from './vec.core';
 
+/** @module */
+
+/**
+ * <h3> Vec.map2(mapping, source1, source2) ⇒ Vec </h3>
+ * Builds a new collection whose elements are the results of applying the given function to the corresponding elements of the two vectors/arrays pairwise.
+ * The two input arrays must have the same lengths.
+ * @param mapping The function to transform the pairs of the input elements.
+ * @param source1 The first input array or vector.
+ * @param source2 The second input array or vector.
+ * @returns {Vec} The vector of transformed elements.
+ * @exception {TypeError} when
+ * mapping is not a function or
+ * mapping is a generator function or
+ * source1 is neither an array nor a vector or
+ * source2 is neither an array nor a vector or
+ * the lengths of source1 and source2 are not the same.
+ * @example
+ * const v1 = Vec.of(1, 2, 3, 4, 5);
+ * const v2 = Vec.of(1, 2, 3, 4, 5);
+ * const mapping = (x, y, index) => x + y + index;
+ * const mapped2 = Vec.map2(mapping, v1, v2);
+ * console.log(mapped2);
+ * // => [ 2, 5, 8, 11, 14 ]
+ */
 function map2(mapping, source1, source2) {
   throwIfNotFunction(mapping, 'mapping');
   throwIfGeneratorFunction(mapping, 'mapping');

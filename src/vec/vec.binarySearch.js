@@ -10,7 +10,7 @@ import { isNull, isUndefined } from '../util';
  * @param item The object to locate.
  * @param comparer The function to compare elements of the vector. if not provided, the default comparer will be used.
  * @returns {number} The zero-based index of item in the sorted vector, if item is found; otherwise, -1.
- * @exception Throws TypeError if the item to search is null or undefined.
+ *  @exception {TypeError} if the item to search is null or undefined.
  * @example
  * const randomNums = new Vec(10, 23, 32, 455, 233, 33, 456, 323, 42, 2, 45, 23, 66);
  * const descendingOrd = (x, y) => x > y ? -1 : x < y ? 1 : 0;

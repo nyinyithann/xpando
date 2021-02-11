@@ -13,7 +13,7 @@ describe('windowed()', () => {
     const actual = new Vec(
       new Vec(1, 2, 3, 4, 5, 6, 7, 8),
       new Vec(2, 3, 4, 5, 6, 7, 8, 9),
-      new Vec(3, 4, 5, 6, 7, 8, 9, 10),
+      new Vec(3, 4, 5, 6, 7, 8, 9, 10)
     );
     expect(expected).toStrictEqual(actual);
     expect(vec.windowed(10)).toStrictEqual(new Vec(vec));
@@ -26,7 +26,7 @@ describe('windowed()', () => {
     const actual = new Vec(
       new Vec(1, 2, 3, 4, 5, 6, 7, 8),
       new Vec(2, 3, 4, 5, 6, 7, 8, 9),
-      new Vec(3, 4, 5, 6, 7, 8, 9, 10),
+      new Vec(3, 4, 5, 6, 7, 8, 9, 10)
     );
 
     expect(windowed.call(vec, 8)).toStrictEqual(actual);

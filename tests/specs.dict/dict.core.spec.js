@@ -3,7 +3,7 @@ import Dict from '../../src/dict/dict.core';
 describe('dict.core', () => {
   test('Dict extends Map, and should work like one', () => {
     const dict = new Dict(
-      [[1, 'one'], [2, 'two'], [3, 'three']],
+      [[1, 'one'], [2, 'two'], [3, 'three']]
     );
     expect(dict.size).toBe(3);
     expect([...dict.entries()]).toStrictEqual([[1, 'one'], [2, 'two'], [3, 'three']]);

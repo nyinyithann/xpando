@@ -1,6 +1,18 @@
 import { isNumber } from '../util';
 import { throwIfNullOrUndefined } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> sum() ⇒ number|undefined </h3>
+ * Returns the sum of the elements in the vector.
+ * @returns {number|undefined} The sum of the elements in the vector if all the elements are number. Otherwise, undefined.
+ * @example
+ * const fiveNumbers = Vec.of(10,20,30,40,50);
+ * const sum = fiveNumbers.sum();
+ * console.log(sum);
+ * // => 150
+ */
 function sum() {
   throwIfNullOrUndefined(this, 'this');
 

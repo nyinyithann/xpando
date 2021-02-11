@@ -14,11 +14,11 @@ import Vec from './vec.core';
  * @param action The function to apply.
  * @param source1 The first input array or vector.
  * @param source2 The second input array or vector.
- * @exception Throws TypeError if
- * - action is a generator function
- * - action is not a function
- * - source1 is neither an array nor a vector.
- * - source2 is neither an array nor a vector.
+ * @exception {TypeError} when
+ * action is a generator function or
+ * action is not a function or
+ * source1 is neither an array nor a vector or
+ * source2 is neither an array nor a vector.
  * @example
  * const charVec_1 = Vec.of('a', 'b', 'c', 'd');
  * const charVec_2 = Vec.of('d', 'e', 'f', 'g');

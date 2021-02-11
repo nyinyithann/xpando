@@ -11,7 +11,7 @@ import { throwIfNullOrUndefined } from '../throwHelper';
  * @param source1 The first input array or vector.
  * @param source2 The second input array or vector.
  * @returns {Vec} The resulting vector of pairs.
- * @exception TypeError if either of the input arguments is null or not of type array or vector.
+ * @exception {TypeError} if either of the input arguments is null or not of type array or vector.
  * @example
  * const source1 = new Vec(1,2,3);
  * const source2 = new Vec(4,5);

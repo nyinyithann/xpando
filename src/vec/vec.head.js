@@ -1,12 +1,11 @@
-import { throwIfContainerEmpty, throwIfNullOrUndefined } from '../throwHelper';
+import { throwIfNullOrUndefined } from '../throwHelper';
 
 /** @module */
 
 /**
  * <h3> head() ⇒ element </h3>
- * Returns the first element of the array.
- * @returns The first element of the array.
- * @exception Throws TypeError if the vector is empty.
+ * Returns the first element of the vector.
+ * @returns The first element of the vector or undefined if the vector is empty.
  * @example
  * const oneToFour = Vec.init(5, x => x + 1);
  * const head = oneToFour.head();
@@ -15,7 +14,10 @@ import { throwIfContainerEmpty, throwIfNullOrUndefined } from '../throwHelper';
  */
 function head() {
   throwIfNullOrUndefined(this, 'this');
-  throwIfContainerEmpty(this);
+
+  if (this.isEmpty()) {
+    return undefined;
+  }
 
   return this[0];
 }

@@ -10,7 +10,7 @@ describe('filter()', () => {
 
   test('should filter existing dict', () => {
     const dict = new Dict(
-      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']],
+      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']]
     );
     const filter = Dict.prototype.filter;
     const predicate = (k, v) => k === 3 && v === 'three';

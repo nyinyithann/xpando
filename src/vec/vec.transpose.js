@@ -3,6 +3,18 @@ import { isNull, isUndefined } from '../util';
 import empty from './vec.empty';
 import { throwIfNullOrUndefined } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> transpose() ⇒ Vec </h3>
+ * Returns the transpose of the vector.
+ * @returns {Vec} The transposed vector.
+ * @example
+ * const matrix = Vec.of([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]);
+ * const tranposed = matrix.transpose();
+ * console.log(tranposed);
+ * // => [ [ 1, 6 ], [ 2, 7 ], [ 3, 8 ], [ 4, 9 ], [ 5, 10 ] ]
+ */
 function transpose() {
   throwIfNullOrUndefined(this, 'this');
 

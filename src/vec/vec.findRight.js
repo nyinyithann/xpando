@@ -12,7 +12,7 @@ import {
  * Returns undefined if none of the elements satisfy the predicate.
  * @param predicate The function to test the input elements.
  * @returns  The last element for which predicate returns true.
- * @exception Throws TypeError if predicate is a generator function or not a function.
+ * @exception {TypeError} if predicate is a generator function or not a function.
  * @example
  * const p1 = { x : 10, y : 50};
  * const p2 = { x : 10, y : 60};

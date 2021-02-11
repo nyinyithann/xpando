@@ -2,7 +2,6 @@ import Vec from '../../src/vec/vec.main';
 
 describe('head()', () => {
   test('should throw error if the existing vec is null, undefined, or empty', () => {
-    expect(() => new Vec().head()).toThrow(TypeError);
     const head = Vec.prototype.head;
     expect(() => head.call(null)).toThrow(TypeError);
   });
@@ -17,5 +16,6 @@ describe('head()', () => {
     expect(head.call(vec)).toBe(0);
     expect(head.apply(vec)).toBe(0);
     expect(head.bind(vec)()).toBe(0);
+    expect(new Vec().head()).toBe(undefined);
   });
 });

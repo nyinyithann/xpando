@@ -1,6 +1,18 @@
 import { isNumber } from '../util';
 import { throwIfNullOrUndefined } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> max() ⇒ number|undefined </h3>
+ * Returns the greatest of all elements of the vector.
+ * @returns {number|undefined}  The maximum number if the vector contains number; otherwise, undefined.
+ * @example
+ * const oneKItems = Vec.init(1000, x => x * x);
+ * const max = oneKItems.max();
+ * console.log(max);
+ * // => 998001
+ */
 function max() {
   throwIfNullOrUndefined(this, 'this');
 

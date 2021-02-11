@@ -29,7 +29,8 @@
     "arrow-parens": "off",
     "no-multiple-empty-lines": "off",
     "wrap-iife": "off",
-    "no-return-assign": "off"
+    "no-return-assign": "off",
+    "comma-dangle": "off"
   }
 }
 

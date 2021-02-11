@@ -10,7 +10,7 @@ describe('partition()', () => {
 
   test('should return correct result', () => {
     const dict = new Dict(
-      [['one', 1], ['two', 2], ['three', 3], ['four', 4], ['five', 5]],
+      [['one', 1], ['two', 2], ['three', 3], ['four', 4], ['five', 5]]
     );
 
     const partition = Dict.prototype.partition;
@@ -18,7 +18,7 @@ describe('partition()', () => {
     const actual = dict.partition(predicate);
     const expected = [
       new Dict([['three', 3], ['four', 4], ['five', 5]]),
-      new Dict([['one', 1], ['two', 2]]),
+      new Dict([['one', 1], ['two', 2]])
     ];
     expect(actual).toStrictEqual(expected);
 

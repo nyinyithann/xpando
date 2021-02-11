@@ -2,7 +2,25 @@ import Vec from './vec.core';
 import { throwIfNullOrUndefined } from '../throwHelper';
 import empty from './vec.empty';
 
-// quickperm algorithm credit => https://www.quickperm.org/quickperm.php
+/** @module */
+
+/**
+ * <h3> permute() ⇒ Vec </h3>
+ * Returns a vector with all elements permuted.
+ * The quickperm algorithm is used. https://www.quickperm.org/quickperm.php
+ * @returns {Vec} The result vector.
+ * @example
+ * const threeNums = Vec.of(1, 2, 3);
+ * const permuted = threeNums.permute();
+ * console.log(permuted);
+ * // =>
+ * //  [ [ 1, 2, 3 ],
+ * //    [ 2, 1, 3 ],
+ * //    [ 3, 1, 2 ],
+ * //    [ 1, 3, 2 ],
+ * //    [ 2, 3, 1 ],
+ * //    [ 3, 2, 1 ] ]
+ */
 function permute() {
   throwIfNullOrUndefined(this, 'this');
 

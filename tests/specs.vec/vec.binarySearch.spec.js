@@ -35,7 +35,8 @@ describe('binarySearch()', () => {
     expect(vec1.binarySearch({ n: 1 }, (x, y) => x.n - y.n)).toBe(0);
     expect(vec1.binarySearch({ n: 1 })).toBe(-1);
 
-    expect(Vec.from([,,, 1, 2, 3, 4, 5, 7,,,]).binarySearch(2)).toBe(4);
+    /* eslint-disable */
+    expect(Vec.from([,,, 1, 2, 3, 4, 5, 7,,, ]).binarySearch(2)).toBe(4);
   });
 
   test('test with complex types', () => {

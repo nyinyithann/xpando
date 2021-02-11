@@ -15,7 +15,7 @@ import {
  * @param projection A function transforming each item of the input vector into a key to be compared against the others.
  * @param structuralEquality If true, deep equality will be used for comparing key, otherwise; same-value-zero equality.
  * @returns {Vec} The result vector.
- * @exception Throws TypeError if struturalEquality parameter is null or undefined; or projection parameter is a generator function
+ *  @exception {TypeError} if struturalEquality parameter is null or undefined; or projection parameter is a generator function
  * or not a function.
  * @example
  * const countByVec = new Vec(1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5);

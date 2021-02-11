@@ -15,10 +15,10 @@ import {
  * @param projection A function that transforms an element of the vector into a key.
  * @param structuralEquality If true, deep equality will be used for comparing key, otherwise; same-value-zero equality.
  * @returns {Vec} The result vector.
- * @exception Throws TypeError if
- * - structuralEquality paramater is null or undefined
- * - projection is a generator function
- * - projection is not a function
+ * @exception {TypeError} when
+ * structuralEquality parameter is null or undefined or
+ * projection is a generator function or
+ * projection is not a function.
  * @example
  *
  * const langs = Vec.of(

@@ -28,10 +28,10 @@ describe('distinct()', () => {
     expect(vec.distinct(false).length).toBe(5);
 
     expect(Vec.from([,,,,,, 1, 1, 1, 1]).distinct(false)).toStrictEqual(Vec.from(
-      [, 1],
+      [, 1]
     ));
     expect(Vec.from([,,,,,, 1, 1, 1, 1]).distinct(true)).toStrictEqual(Vec.from(
-      [, 1],
+      [, 1]
     ));
   });
 

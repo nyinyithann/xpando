@@ -9,7 +9,7 @@ import { equalWith, sameValueZeroEqual } from '../util';
  * @param structuralEquality If true, deep equality will be used for comparison, otherwise; same-value-zero equality.
  * @param itemsToExclude A sequence whose elements that also occur in the source vector will cause those elements to be removed from the result.
  * @returns {Vec} A vector that contains the distinct elements of source vector that do not appear in itemsToExclude.
- * @exception Throws TypeError if structuralEquality parameter is null or undefined.
+ * @exception {TypeError} if structuralEquality parameter is null or undefined.
  * @example
  * const nObjVec = Vec.of({ n: 1 }, { n: 1 }, { n: 2 }, { n: 2 }, { n: 2 }, { n: 4 });
  * const except_1 = nObjVec.except(false, { n: 1 }, { n: 4 });

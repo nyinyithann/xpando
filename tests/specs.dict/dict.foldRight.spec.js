@@ -11,7 +11,7 @@ describe('foldRight()', () => {
 
   test('should return correct state', () => {
     const dict = new Dict(
-      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']],
+      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']]
     );
 
     expect(dict.foldRight((k, v, acc) => acc + k, 0)).toBe(15);

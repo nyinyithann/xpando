@@ -14,7 +14,7 @@ describe('permute()', () => {
       Vec.of(3, 1, 2),
       Vec.of(1, 3, 2),
       Vec.of(2, 3, 1),
-      Vec.of(3, 2, 1),
+      Vec.of(3, 2, 1)
     ));
     expect(vec).toStrictEqual(new Vec(1, 2, 3));
     expect(new Vec().permute()).toStrictEqual(new Vec());
@@ -29,7 +29,7 @@ describe('permute()', () => {
       new Vec(n3, n1, n2),
       new Vec(n1, n3, n2),
       new Vec(n2, n3, n1),
-      new Vec(n3, n2, n1),
+      new Vec(n3, n2, n1)
     ));
     expect(vecn).toStrictEqual(new Vec(n1, n2, n3));
   });

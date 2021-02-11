@@ -11,19 +11,19 @@ describe('change()', () => {
 
   test('should return a new Dict with correct entities', () => {
     const dict = new Dict(
-      [[1, 'one'], [2, 'two'], [3, 'three']],
+      [[1, 'one'], [2, 'two'], [3, 'three']]
     );
 
     expect(dict.change((k) => k === 1, (v) => 'New Value')).toStrictEqual(
-      new Dict([[1, 'New Value'], [2, 'two'], [3, 'three']]),
+      new Dict([[1, 'New Value'], [2, 'two'], [3, 'three']])
     );
 
     expect(dict.change((k) => k, (v) => 'New Value')).toStrictEqual(
-      new Dict([[1, 'New Value'], [2, 'New Value'], [3, 'New Value']]),
+      new Dict([[1, 'New Value'], [2, 'New Value'], [3, 'New Value']])
     );
 
     expect(dict.change((k) => k === 4, (v) => 'New Value')).toStrictEqual(
-      new Dict([[1, 'one'], [2, 'two'], [3, 'three']]),
+      new Dict([[1, 'one'], [2, 'two'], [3, 'three']])
     );
   });
 });

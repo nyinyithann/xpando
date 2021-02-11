@@ -12,7 +12,7 @@ import {
  * Returns -1 if none of the elements satisfy the predicate.
  * @param predicate The function to test the input elements.
  * @returns {number} The index of the first element in the array that satisfies the given predicate.
- * @exception Throws TypeError if predicate is a generator function or not a function.
+ * @exception {TypeError} if predicate is a generator function or not a function.
  * @example
  * const nums = Vec.of(1, 2, 3, 4, 5, 6, 7, 8);
  * const indexRight = nums.findIndexRight(x => x % 2 === 1);

@@ -5,6 +5,33 @@ import {
 } from '../throwHelper';
 import Vec from './vec.core';
 
+/** @module */
+
+/**
+ * <h3> Vec.map3(mapping, source1, source2, source3) ⇒ Vec </h3>
+ * Builds a new collection whose elements are the results of applying the given function to the corresponding elements of the three vectors/arrays pairwise.
+ * The two input arrays must have the same lengths.
+ * @param mapping The function to transform the pairs of the input elements.
+ * @param source1 The first input array or vector.
+ * @param source2 The second input array or vector.
+ * @param source3 The third input array or vector.
+ * @returns {Vec} The vector of transformed elements.
+ * @exception {TypeError} when
+ *  mapping is not a function or
+ *  mapping is a generator function or
+ *  source1 is neither an array nor a vector or
+ *  source2 is neither an array nor a vector or
+ *  source3 is neither an array nor a vector or
+ *  the lengths of source1, source2, and source3 are not the same.
+ * @example
+ * const vec_1 = Vec.of(1, 2, 3, 4, 5);
+ * const vec_2 = Vec.of(1, 2, 3, 4, 5);
+ * const vec_3 = Vec.of(1, 2, 3, 4, 5);
+ * const mapping3 = (x, y, z, index) => x + y + z + index;
+ * const mapped3 = Vec.map3(mapping3, vec_1, vec_2, vec_3);
+ * console.log(mapped3);
+ * // => [ 3, 7, 11, 15, 19 ]
+ */
 function map3(mapping, source1, source2, source3) {
   throwIfNotFunction(mapping, 'mapping');
   throwIfGeneratorFunction(mapping, 'mapping');

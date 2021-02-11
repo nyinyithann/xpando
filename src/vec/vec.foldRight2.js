@@ -17,12 +17,12 @@ import Vec from './vec.core';
  * @param source1 The first input array or vector.
  * @param source2 The second input array or vector.
  * @returns The final state.
- * @exception Throws TypeError when
- * - state is null or undefined
- * - folder is not a function
- * - folder is a generator function
- * - source1 is neither an array nor a vector
- * - source2 is neither an array nor a vector
+ * @exception {TypeError} when
+ * state is null or undefined or
+ * folder is not a function or
+ * folder is a generator function or
+ * source1 is neither an array nor a vector or
+ * source2 is neither an array nor a vector.
  * @example
  * const oneToHundred_1 = Vec.init(100, x => x + 1);
  * const oneToHundred_2 = Vec.init(100, x => x + 1);

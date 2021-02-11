@@ -30,19 +30,19 @@ describe('countBy()', () => {
       .toStrictEqual(new Vec(
         new Vec(1, 2),
         new Vec(2, 3),
-        new Vec(4, 1),
+        new Vec(4, 1)
       ));
     expect(countBy.apply(vec, [(x) => x, false]))
       .toStrictEqual(new Vec(
         new Vec(1, 2),
         new Vec(2, 3),
-        new Vec(4, 1),
+        new Vec(4, 1)
       ));
     expect(countBy.bind(vec)((x) => x, true))
       .toStrictEqual(new Vec(
         new Vec(1, 2),
         new Vec(2, 3),
-        new Vec(4, 1),
+        new Vec(4, 1)
       ));
   });
 
@@ -68,7 +68,7 @@ describe('countBy()', () => {
     const vec = new Vec(mrA, mrA, mrB);
     expect(vec.countBy(projection, true, obj))
       .toStrictEqual(new Vec(
-        new Vec('A', 2), new Vec('B', 1),
+        new Vec('A', 2), new Vec('B', 1)
       ));
   });
 
@@ -86,28 +86,28 @@ describe('countBy()', () => {
         new Vec(10, 1),
         new Vec(true, 2),
         new Vec(false, 1),
-        new Vec(p1, 2),
+        new Vec(p1, 2)
       ));
 
     const mrA = new Person('A', 20);
     const mrB = new Person('B', 15);
     const mrC = new Person('C', 15);
     const vec1 = new Vec(mrA, mrA, mrA, mrB, mrB, mrC, mrC, mrC, null, null, undefined, undefined);
-    expect(vec1.countBy((x) => x?.name, false))
+    expect(vec1.countBy((x) => (x ? x.name : undefined), false))
       .toStrictEqual(new Vec(
         new Vec('A', 3),
         new Vec('B', 2),
         new Vec('C', 3),
-        new Vec(undefined, 4),
+        new Vec(undefined, 4)
       ));
 
     expect(Vec.from([,, 1, 1]).countBy((x) => x, true)).toStrictEqual(new Vec(
       Vec.from([, 2]),
-      new Vec(1, 2),
+      new Vec(1, 2)
     ));
     expect(Vec.from([,, 1, 1]).countBy((x) => x, false)).toStrictEqual(new Vec(
       Vec.from([, 2]),
-      new Vec(1, 2),
+      new Vec(1, 2)
     ));
   });
 
@@ -131,13 +131,13 @@ describe('countBy()', () => {
     let received = vec.countBy(({ father }) => father, false);
     let actual = new Vec(
       new Vec(godFather, 3),
-      new Vec(holyGhostFather, 2),
+      new Vec(holyGhostFather, 2)
     );
     expect(received).toStrictEqual(actual);
 
     received = vec.countBy(({ father }) => father, true);
     actual = new Vec(
-      new Vec(godFather, 5),
+      new Vec(godFather, 5)
     );
     expect(received).toStrictEqual(actual);
   });

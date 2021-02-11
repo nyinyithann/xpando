@@ -13,12 +13,12 @@ describe('Vec.transpose()', () => {
     const expected = new Vec(
       new Vec(1, 4),
       new Vec(2, 5),
-      new Vec(3, 6),
+      new Vec(3, 6)
     );
     expect(actual).toStrictEqual(expected);
 
     expect((new Vec([1, 2, 3])).transpose()).toStrictEqual(new Vec(
-      Vec.of(1), Vec.of(2), Vec.of(3),
+      Vec.of(1), Vec.of(2), Vec.of(3)
     ));
 
     expect((new Vec([])).transpose()).toStrictEqual(new Vec());

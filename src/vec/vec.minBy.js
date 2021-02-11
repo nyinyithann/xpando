@@ -5,6 +5,28 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> minBy(projection) ⇒ number|undefined </h3>
+ * Returns the smallest of all elements of the vector.
+ * @param projection The function to transform the elements into a certain type.
+ * @returns {number|undefined} The minimum element.
+ * @exception {TypeError} when projection is not a function or projection is a generator function.
+ * @example
+ * const thousandNums = Vec.init(1000, x => x + 1);
+ * const smallestPerfectNumberUnder1000 = thousandNums.minBy(x => {
+ *    const v = new Vec();
+ *    for(let i = 1; i < x; i += 1) {
+ *        if (x % i === 0) {
+ *            v.push(i);
+ *        }
+ *    }
+ *    if (!v.isEmpty() &&  v.reduce((x,y) => x + y) === x) return x;
+ * });
+ * console.log(smallestPerfectNumberUnder1000);
+ * // => 6
+ */
 function minBy(projection) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(projection, 'projection');

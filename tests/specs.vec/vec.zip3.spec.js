@@ -19,7 +19,7 @@ describe('Vec.zip3', () => {
         new Vec(2, 2, 2),
         new Vec(3, 3, 3),
         new Vec(4, 4, 4),
-        new Vec(5, 5, 5),
+        new Vec(5, 5, 5)
       ));
   });
 });

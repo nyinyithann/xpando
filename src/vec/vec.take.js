@@ -2,6 +2,19 @@ import empty from './vec.empty';
 import Vec from './vec.core';
 import { throwIfNullOrUndefined } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> take(count) ⇒ Vec </h3>
+ * Returns the first N elements of the vector.
+ * @param count The number of items to take.
+ * @returns {Vec} The result vector.
+ * @example
+ * const zeroToTen = Vec.init(11, x => x);
+ * const firstFive = zeroToTen.take(5);
+ * console.log(firstFive);
+ * // => [ 0, 1, 2, 3, 4 ]
+ */
 function take(count) {
   throwIfNullOrUndefined(this, 'this');
 

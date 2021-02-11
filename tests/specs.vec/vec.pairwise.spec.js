@@ -18,7 +18,7 @@ describe('pairwise()', () => {
       new Vec(0, 1),
       new Vec(1, 2),
       new Vec(2, 3),
-      new Vec(3, 4),
+      new Vec(3, 4)
     );
     expect(vec.pairwise()).toStrictEqual(expected);
   });
@@ -31,7 +31,7 @@ describe('pairwise()', () => {
       new Vec(0, 1),
       new Vec(1, 2),
       new Vec(2, 3),
-      new Vec(3, 4),
+      new Vec(3, 4)
     );
 
     expect(pairwise.call(vec)).toStrictEqual(expected);

@@ -16,7 +16,7 @@ describe('Vec.map2()', () => {
     const v2 = Vec.of(1, 2, 3, 4, 5);
     const mapping = (x, y, i) => x + y + i;
     expect(Vec.map2(mapping, v1, v2)).toStrictEqual(new Vec(
-      2, 5, 8, 11, 14,
+      2, 5, 8, 11, 14
     ));
   });
 });

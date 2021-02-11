@@ -1,6 +1,35 @@
 import { throwIfNullOrUndefined } from '../throwHelper';
 import Vec from './vec.core';
 
+/** @module */
+
+/**
+ * <h3> Vec.zip3(source1, source2, source3) ⇒ Vec </h3>
+ * Combines three vectors into a vector of pairs. The three vectors must have equal lengths.
+ * @param source1 The first input array or vector.
+ * @param source2 The second input array or vector.
+ * @param source3 The third input array or vector.
+ * @returns {Vec} The result vector.
+ * @exception {TypeError} when
+ *  source1 is neither an array nor a vector or
+ *  source2 is neither an array nor a vector or
+ *  source3 is neither an array nor a vector or
+ *  the lengths of source1, source2, and source3 are not the same.
+ * @example
+ * const sevenNumbers_1 = Vec.init(7, x => x);
+ * const sevenNumbers_2 = Vec.init(7, x => x + x);
+ * const sevenNumbers_3 = Vec.init(7, x => x * x);
+ * const zipped3 = Vec.zip3(sevenNumbers_1, sevenNumbers_2, sevenNumbers_3);
+ * console.log(zipped3);
+ * // =>
+ *  [ [ 0, 0, 0 ],
+ *    [ 1, 2, 1 ],
+ *    [ 2, 4, 4 ],
+ *    [ 3, 6, 9 ],
+ *    [ 4, 8, 16 ],
+ *    [ 5, 10, 25 ],
+ *    [ 6, 12, 36 ] ]
+ */
 function zip3(source1, source2, source3) {
   throwIfNullOrUndefined(source1, 'source1');
   throwIfNullOrUndefined(source2, 'source2');

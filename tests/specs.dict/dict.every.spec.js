@@ -10,7 +10,7 @@ describe('every()', () => {
 
   test('should return correct result', () => {
     const dict = new Dict(
-      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']],
+      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']]
     );
 
     expect(dict.every((k, v) => k > 0)).toBe(true);

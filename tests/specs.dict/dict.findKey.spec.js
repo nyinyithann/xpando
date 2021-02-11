@@ -10,7 +10,7 @@ describe('findKey()', () => {
 
   test('should return key', () => {
     const dict = new Dict(
-      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']],
+      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']]
     );
     const findKey = Dict.prototype.findKey;
     const predicate = (_, v) => v === 'three';

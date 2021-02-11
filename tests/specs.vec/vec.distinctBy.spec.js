@@ -33,16 +33,16 @@ describe('distinctBy()', () => {
     expect(actual4).toStrictEqual(expected4);
 
     expect(Vec.from([,,,,,, 1, 1, 1, 1]).distinctBy((x) => x, false)).toStrictEqual(Vec.from(
-      [, 1],
+      [, 1]
     ));
     expect(Vec.from([,,,,,, 1, 1, 1, 1]).distinctBy((x) => x, true)).toStrictEqual(Vec.from(
-      [, 1],
+      [, 1]
     ));
   });
 
   test('projection might be associate with a context', () => {
     const context = {
-      propName: 'n',
+      propName: 'n'
     };
     const projection = function (x) { return x[this.propName]; };
     const vec = new Vec({ n: 1 }, { n: 1 }, { n: 2 }, { n: 2 }, { n: -2 }, { n: 1 });

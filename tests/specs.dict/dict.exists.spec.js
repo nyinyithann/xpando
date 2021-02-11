@@ -7,9 +7,10 @@ describe('exists()', () => {
     expect(() => Dict.prototype.exists.call(new Dict(), function* () {})).toThrow(TypeError);
   });
 
+  /* eslint-disable */
   test('should check if a key or value exists in the Dict', () => {
     const dict = new Dict(
-      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']],
+      [[1, 'one'], [2, 'other'], [3, 'three'], [4, 'other'], [5, 'other']]
     );
 
     expect(dict.exists((k, _) => k === 1)).toBe(true);

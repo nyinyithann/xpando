@@ -9,7 +9,7 @@ import { throwIfNegativeNumber, throwIfNullOrUndefined } from '../throwHelper';
  * Divides the source vector into chunks of size at most chunkSize.
  * @param chunkSize The maximum size of each chunk.
  * @returns {Vec} The vector divided into chunks.
- * @exception Throws TypeError if chunkSize is negative.
+ *  @exception {TypeError} if chunkSize is negative.
  * @example
  * const vec = Vec.init(10, x => x + 1);
  * const chunks = vec.chunkBySize(3);

@@ -9,7 +9,7 @@ describe('toVec()', () => {
 
   test('should return an array', () => {
     const dict = new Dict(
-      [['one', 1], ['two', 2], ['three', 3], ['four', 4], ['five', 5]],
+      [['one', 1], ['two', 2], ['three', 3], ['four', 4], ['five', 5]]
     );
 
     const toVec = Dict.prototype.toVec;

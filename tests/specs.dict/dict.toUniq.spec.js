@@ -10,7 +10,7 @@ describe('toUniq()', () => {
   test('should return a uniq', () => {
     const one = ['one', 1];
     const dict = new Dict(
-      [one, one, one, ['two', 2], ['three', 3], ['four', 4], ['five', 5]],
+      [one, one, one, ['two', 2], ['three', 3], ['four', 4], ['five', 5]]
     );
 
     const toUniq = Dict.prototype.toUniq;

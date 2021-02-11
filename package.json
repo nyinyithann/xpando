@@ -1,6 +1,6 @@
 {
   "name": "xpando",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "build/umd/xpando.js",
   "module": "build/esm/xpando.js",
   "license": "MIT",
@@ -38,7 +38,7 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "scripts": {
-    "lint": "eslint src/*.js",
+    "lint": "eslint src src/** tests/** ",
     "test": "jest --config jest.config.js",
     "test-more": "jest --config jest.config.js tests/util",
     "test-specs": "jest --config jest.config.js tests/specs.vec",

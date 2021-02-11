@@ -2,7 +2,6 @@ import Vec from '../../src/vec/vec.main';
 
 describe('tail()', () => {
   test('should throw error if the existing vec is null, undefined, or empty', () => {
-    expect(() => new Vec().tail()).toThrow(TypeError);
     const tail = Vec.prototype.tail;
     expect(() => tail.call(null)).toThrow(TypeError);
   });
@@ -18,5 +17,6 @@ describe('tail()', () => {
     expect(tail.call(vec)).toStrictEqual(new Vec(1, 2));
     expect(tail.apply(vec)).toStrictEqual(new Vec(1, 2));
     expect(tail.bind(vec)()).toStrictEqual(new Vec(1, 2));
+    expect(new Vec().tail()).toStrictEqual(new Vec());
   });
 });

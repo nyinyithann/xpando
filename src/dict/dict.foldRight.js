@@ -4,6 +4,27 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> foldRight(folder, state) ⇒ value </h3>
+ * Folds over the bindings in the map.
+ * @param folder The function to update the state given the input key/value pairs.
+ * @param state The initial state
+ * @returns The final state value.
+ * @exception {TypeError} when state is null or undefined. Or folder is not a function. Or folder is a generator function.
+ * @example
+ * const dict_7 = new Dict(
+ *    [[1, "one"], [2, "two"], [3, "three"], [4, "four"]]
+ * );
+ * const finalState = dict_7.foldRight((k, v, s) => `${s}{${k} -> ${v}}\n`, '');
+ * console.log(finalState);
+ * // =>
+ * // {4 -> four}
+ * // {3 -> three}
+ * // {2 -> two}
+ * // {1 -> one}
+ */
 function foldRight(folder, state) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNullOrUndefined(state, 'state');

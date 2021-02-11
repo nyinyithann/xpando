@@ -4,6 +4,22 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> exists(predicate) ⇒ Dict </h3>
+ * Returns true if the given predicate returns true for one of the bindings in the Dict.
+ * @param predicate The function to test the input elements.
+ * @returns {boolean} True if the predicate returns true for one of the key/value paris.
+ * @exception {TypeError} when predicate is not a function or a generator function.
+ * @example
+ * const dict_3 = new Dict(
+ *    [[1, "one"], [2, "two"], [3, "three"], [4, "four"]]
+ * );
+ * const hasValueWithLengthOf5 = dict_3.exists((k, v) => v.length === 5);
+ * console.log(hasValueWithLengthOf5);
+ * // => true
+ */
 function exists(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');

@@ -17,7 +17,7 @@ import difference from './uniq.difference';
 import intersect from './uniq.intersect';
 import isProperSupersetOf from './uniq.isProperSupersetOf';
 import isProperSubsetOf from './uniq.isProperSubsetOf';
-import isSubsetOf from './uniq.subsetOf';
+import isSubsetOf from './uniq.isSubsetOf';
 import isSupersetOf from './uniq.isSupersetOf';
 import union from './uniq.union';
 

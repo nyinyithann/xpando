@@ -5,6 +5,20 @@ import {
 } from '../throwHelper';
 import Uniq from './uniq.core';
 
+/** @module */
+
+/**
+ * <h3> map(mapping) ⇒ Uniq </h3>
+ * Returns a new collection containing the results of applying the given function to each element of the input set.
+ * @param mapping The function to transform elements of the input set.
+ * @returns {Uniq} A set containing the transformed elements.
+ * @exception {TypeError} When mapping is not a function or a generator function.
+ * @example
+ * const uniq_17 = Uniq.of(1, 2, 3, 4, 5);
+ * const mappedResult = uniq_17.map(x => x + x);
+ * console.log(mappedResult);
+ * // => [Uniq] { 2, 4, 6, 8, 10 }
+ */
 function map(mapping) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(mapping, 'mapping');

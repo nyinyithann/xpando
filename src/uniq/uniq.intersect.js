@@ -1,6 +1,22 @@
 import { throwIfNullOrUndefined } from '../throwHelper';
 import Uniq from './uniq.core';
 
+/** @module */
+
+/**
+ * <h3> intersect(...others) ⇒ boolean </h3>
+ * Computes the intersection of sets.
+ * @param others One or more of other sets.
+ * @returns {Uniq} The intersection of the sets.
+ * @exception {TypeError} When others has one or more sources which are not of type Set or Uniq.
+ * @example
+ * const uniq_8 = Uniq.of(1, 2, 3, 4, 5, 6, 7);
+ * const otherSet_1 = Uniq.of(1, 2, 3, 4);
+ * const otherSet_2 = new Set([3, 4]);
+ * const intersectResult = uniq_8.intersect(otherSet_1, otherSet_2);
+ * console.log(intersectResult);
+ * // => [Uniq] { 3, 4 }
+ */
 function intersect(...others) {
   throwIfNullOrUndefined(this, 'this');
 

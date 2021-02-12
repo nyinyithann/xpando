@@ -3,7 +3,7 @@ import { throwIfNullOrUndefined } from '../throwHelper';
 /** @module */
 
 /**
- * <h3> Dict.toSet() ⇒ Set </h3>
+ * <h3> toSet() ⇒ Set </h3>
  * Returns a set of all key-value pairs in the mapping. The set will be ordered by the keys of the map.
  * @returns The result set.
  * @example

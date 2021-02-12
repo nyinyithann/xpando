@@ -4,6 +4,19 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> exists(predicate) ⇒ boolean </h3>
+ * Tests if any element of the collection satisfies the given predicate.
+ * @param predicate The function to test set elements.
+ * @returns {boolean} True if any element of set satisfies predicate.
+ * @example
+ * const uniq_4 = Uniq.of(1, 2, 3, 4, 5);
+ * const hasEvenNum = uniq_4.exists(x => x % 2 === 0);
+ * console.log(hasEvenNum);
+ * // => true
+ */
 function exists(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');

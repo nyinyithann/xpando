@@ -4,6 +4,20 @@ import {
   throwIfNullOrUndefined,
 } from '../throwHelper';
 
+/** @module */
+
+/**
+ * <h3> every(predicate) ⇒ boolean </h3>
+ * Tests if all elements of the collection satisfy the given predicate
+ * @param predicate The function to test set elements.
+ * @returns {boolean} True if all elements of set satisfy predicate.
+ * @exception {TypeError} When predicate is not a function or a generator function.
+ * @example
+ * const uniq_3 = Uniq.of(1, 3, 5);
+ * const allOdds = uniq_3.every(x => x % 2 !== 0);
+ * console.log(allOdds);
+ * // => true
+ */
 function every(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');

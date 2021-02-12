@@ -5,6 +5,15 @@ import {
 } from '../throwHelper';
 import Uniq from './uniq.core';
 
+/** @module */
+
+/**
+ * <h3> partition(predicate) ⇒ Uniq </h3>
+ * Splits the set into two sets containing the elements for which the given predicate returns true and false respectively.
+ * @param predicate The function to test set elements.
+ * @returns An array containing two split sets.
+ * @exception {TypeError} When predicate is not a function or a generator function.
+ */
 function partition(predicate) {
   throwIfNullOrUndefined(this, 'this');
   throwIfNotFunction(predicate, 'predicate');

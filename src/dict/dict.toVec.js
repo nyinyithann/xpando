@@ -4,7 +4,7 @@ import Vec from '../vec/vec.core';
 /** @module */
 
 /**
- * <h3> Dict.toVec() ⇒ Vec </h3>
+ * <h3> toVec() ⇒ Vec </h3>
  * Returns a vec of all key-value pairs in the mapping. The vec will be ordered by the keys of the dict.
  * @returns The result vec.
  * @example

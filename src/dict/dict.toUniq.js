@@ -4,7 +4,7 @@ import Uniq from '../uniq/uniq.core';
 /** @module */
 
 /**
- * <h3> Dict.toUniq() ⇒ Uniq </h3>
+ * <h3> toUniq() ⇒ Uniq </h3>
  * Returns a uniq of all key-value pairs in the mapping. The uniq will be ordered by the keys of the map.
  * @returns The result set.
  * @example

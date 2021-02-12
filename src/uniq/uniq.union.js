@@ -1,6 +1,21 @@
 import { throwIfNullOrUndefined } from '../throwHelper';
 import Uniq from './uniq.core';
 
+/** @module */
+
+/**
+ * <h3> union(...others) ⇒ Uniq </h3>
+ * Computes the union of sets.
+ * @param others One or more of other sets.
+ * @returns {Uniq} The union of sets.
+ * @exception {TypeError} When others has one or more sources which are not of type Set or Uniq.
+ * @example
+ * const uniq_18 = Uniq.of(1, 2, 3, 4, 5);
+ * const uniq_19 = Uniq.of(11, 12, 13, 14, 15);
+ * const union = uniq_18.union(uniq_19);
+ * console.log(union);
+ * // => [Uniq] { 1, 2, 3, 4, 5, 11, 12, 13, 14, 15 }
+ */
 function union(...others) {
   throwIfNullOrUndefined(this, 'this');
 

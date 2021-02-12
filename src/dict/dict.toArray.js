@@ -3,7 +3,7 @@ import { throwIfNullOrUndefined } from '../throwHelper';
 /** @module */
 
 /**
- * <h3> Dict.toArray() ⇒ Array </h3>
+ * <h3> toArray() ⇒ Array </h3>
  * Returns an array of all key-value pairs in the mapping. The array will be ordered by the keys of the dict.
  * @returns The result array.
  * @example

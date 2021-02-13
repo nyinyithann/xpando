@@ -65,4 +65,39 @@ console.log(fibOf10);
 // => [ 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ]
 ```
 
-Please go to [Vec APIs](vec.api.md) to read detail documentation of `Vec` APIs.
+Please go to [Vec APIs](/api.docs/vec.api.md) to read more about `Vec` APIs.
+
+## Dict
+
+`Dict` extends `Map`. All built-in methods of `Map` can be used with `Dict`. And Xpando provides additional methods.
+```javascript
+const diatonicMajorInC = new Dict(
+  [
+    [1, ['C', 'do']],
+    [2, ['D', 're']],
+    [3, ['E', 'mi']],
+    [4, ['F', 'fa']],
+    [5, ['G', 'so']],
+    [6, ['A', 'la']],
+    [7, ['B', 'ti']]
+  ]
+);
+const twinkelLittleStarNotes = new Vec(1, 1, 5, 5, 6, 6, 5);
+const solfeges = diatonicMajorInC.fold((s, k, [_, solfege]) => twinkelLittleStarNotes.includes(k) ? `${s}${solfege} ` : s, '');
+console.log(solfeges)
+// => do so la
+```
+Please go to [Dict APIs](/api.docs/dict.api.md) to read more about `Dict` APIs.
+
+## Uniq
+
+`Uniq` extends `Set`. All built-in methods of `Set` can be used with `Uniq`. And Xpando provides additional methods.
+
+```javascript
+const somePrimes = new Uniq([2, 3, 5, 7, 11, 13]);
+const someEvens = new Uniq([2, 4, 6, 8, 10]);
+const evenPrime = somePrimes.intersect(someEvens);
+console.log(evenPrime);
+// => [Uniq] { 2 }
+```
+Please go to [Uniq APIs](/api.docs/uniq.api.md) to read more about `Uniq` APIs.

@@ -6,6 +6,8 @@ import { throwIfNullOrUndefined } from '../throwHelper';
 /** @module */
 
 /**
+ * <h1> Vec APIs </h1>
+ * <hr/>
  * <h3> Vec.allPairs(source1, source2) ⇒ Vec </h3>
  * Returns a new vector that contains all pairings of elements from the first and second arrays or vectors.
  * @param source1 The first input array or vector.

@@ -8,7 +8,10 @@ import Dict from './dict.core';
 /** @module */
 
 
+
 /**
+ * <h1> Dict APIs </h1>
+ * <hr/>
  * <h3> change(keyMapping, valueMpping) ⇒ Dict </h3>
  * Returns a new map with the value come out of valueMapping. The value is associated with the key come out of keyMapping.
  * @param keyMapping The function to get key.

@@ -1,4 +1,6 @@
-  <h3> difference(other) ⇒ Uniq </h3>
+  <h1> Uniq APIs </h1>
+<hr/>
+<h3> difference(other) ⇒ Uniq </h3>
 Returns a new set with the elements of the second set removed from the first.
 
 **Returns**: <code>Uniq</code> - The set with the elements of other set removed from the source set.  

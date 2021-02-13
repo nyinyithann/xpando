@@ -1,4 +1,6 @@
-  <h3> Vec.allPairs(source1, source2) ⇒ Vec </h3>
+  <h1> Vec APIs </h1>
+<hr/>
+<h3> Vec.allPairs(source1, source2) ⇒ Vec </h3>
 Returns a new vector that contains all pairings of elements from the first and second arrays or vectors.
 
 **Returns**: <code>Vec</code> - The resulting vector of pairs.  

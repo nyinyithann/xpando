@@ -4,6 +4,8 @@ import Uniq from './uniq.core';
 /** @module */
 
 /**
+ * <h1> Uniq APIs </h1>
+ * <hr/>
  * <h3> difference(other) ⇒ Uniq </h3>
  * Returns a new set with the elements of the second set removed from the first.
  * @param other The set whose elements will be removed.

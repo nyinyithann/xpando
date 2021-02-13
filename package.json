@@ -1,6 +1,6 @@
 {
   "name": "xpando",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "main": "build/umd/xpando.js",
   "module": "build/esm/xpando.js",
   "license": "MIT",

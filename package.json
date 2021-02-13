@@ -1,6 +1,6 @@
 {
   "name": "xpando",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "main": "build/umd/xpando.js",
   "module": "build/esm/xpando.js",
   "license": "MIT",
@@ -12,7 +12,10 @@
     "dictionary",
     "uniq",
     "list",
-    "extensions"
+    "extensions",
+    "ES6",
+    "ES2015",
+    "functioanl programming"
   ],
   "author": "Nyi Nyi Than <nyinyithann@gmail.com>",
   "devDependencies": {
@@ -40,16 +43,14 @@
   "scripts": {
     "lint": "eslint src src/** tests/** ",
     "test": "jest --config jest.config.js",
-    "test-more": "jest --config jest.config.js tests/util",
-    "test-specs": "jest --config jest.config.js tests/specs.vec",
     "vec-doc": "jsdoc2md --partial docs.hbs body.hbs main-index.hbs --files src/vec/*.js > api.docs/vec.api.md",
     "dict-doc": "jsdoc2md --partial docs.hbs body.hbs main-index.hbs --files src/dict/*.js > api.docs/dict.api.md",
     "uniq-doc": "jsdoc2md --partial docs.hbs body.hbs main-index.hbs --files src/uniq/*.js > api.docs/uniq.api.md",
     "prepare": "rollup --config",
-    "build": "npm run lint & npm run test & npm run doc & npm run prepare",
+    "build": "npm run lint & npm run test & npm run vec-doc & npm run dict-doc & npm run uniq-doc & npm run prepare",
     "iv": "npm --no-git-tag-version version patch",
-    "lp": "npm run iv & npm publish --registry http://localhost:4873",
-    "lup": "npm unpublish --force --registry http://localhost:4873/  xpando"
+    "verdaccio-publish": "npm run iv & npm publish --registry http://localhost:4873",
+    "verdaccio-unpublish": "npm unpublish --force --registry http://localhost:4873/  xpando"
   },
   "files": [
     "build/esm/*",

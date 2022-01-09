@@ -2,9 +2,13 @@
 ### A library that extends JavaScript Array, Map, and Set.
 
 Xpando is a JavaScript library for nodeJS and browser. Xpando extends JavaScript Array, Map, and Set. The library is heavily inspired and influenced by F# Array, Map, and Set modules.
-
-[Vec APIs](/api.docs/vec.api.md) | [Dict APIs](/api.docs/dict.api.md) | [Uniq APIs](/api.docs/uniq.api.md)
 <hr>
+Please note  **xpando npm package** is deprecated. The following three separated packages are introduced instead.<br/>
+[Vec.js] (https://www.npmjs.com/package/@nyinyithann/vec.js)<br/>
+[Dict.js] (https://www.npmjs.com/package/@nyinyithann/dict.js)<br/>
+[Uniq.js] (https://www.npmjs.com/package/@nyinyithann/uniq.js)
+<hr>
+
 
 ## Installation
 
